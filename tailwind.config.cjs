@@ -1,0 +1,77 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
+// tailwind.config.cjs
+module.exports = {
+  mode: "jit",
+  content: [
+    "./public/**/*.html",
+    "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}",
+  ],
+  theme: {
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      neutral: {
+        1: "#f6f6f7",
+        2: "#dddde2",
+        3: "#c4c5cd",
+        4: "#acadb8",
+        5: "#9496a3",
+        6: "#7e808e",
+        7: "#696b78",
+        8: "#555762",
+        9: "#42434d",
+        10: "#303137",
+        11: "#1f2023",
+        12: "#0e0e0f",
+      },
+      brand: {
+        1: "#eff4f5",
+        2: "#cfdfe1",
+        3: "#adc9cd",
+        4: "#8cb4ba",
+        5: "#6e9fa7",
+        6: "#528a92",
+        7: "#3c757d",
+        8: "#2d6067",
+        9: "#234c51",
+        10: "#1d383c",
+        11: "#162527",
+        12: "#0d1314",
+      },
+      accent: {
+        1: "#fff9ee",
+        2: "#ffebb0",
+        3: "#ffde70",
+        4: "#f5cc44",
+        5: "#d4af31",
+        6: "#ac8c26",
+        7: "#8a6f1f",
+        8: "#735c1c",
+        9: "#5b4919",
+        10: "#433615",
+        11: "#2d2411",
+        12: "#181308",
+      },
+    },
+    fontSize: {
+      xs: "0.5rem",
+      sm: "0.707rem",
+      base: "1rem",
+      lg: "1.414rem",
+      xl: "1.999rem",
+      "2xl": "2.827rem",
+      "3xl": "3.998rem",
+      "4xl": "5.653rem",
+      "5xl": "7.993rem",
+      "6xl": "11.302rem",
+    },
+    extend: {
+      fontFamily: {
+        sans: ["Manrope", ...fontFamily.sans],
+        serif: ["Merriweather", ...fontFamily.serif],
+        display: ["Carbon", ...fontFamily.sans],
+      },
+    },
+  },
+};

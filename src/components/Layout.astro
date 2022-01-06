@@ -1,0 +1,67 @@
+---
+import SiteMeta from './SiteMeta.astro';
+import Navicon from '~icons/ei/navicon';
+import Close from '~icons/ei/close'
+
+
+export interface Props {
+  showLogo?: boolean;
+  title?: string;
+  desription?: string;
+  ogImageSource?: string;
+}
+
+const {
+    showLogo = true,
+    title, 
+    description, 
+    ogImageSource, 
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <SiteMeta {description} {title} {ogImageSource}/>
+  </head>
+  <body>
+      <header class="fixed top-0 left-0 right-0 bg-transparent flex justify-end py-4 pr-4">
+          <a href="#menu" id="menu-toggle" class="menu-toggle" aria-label="Open main menu">
+              <span class="sr-only">Open main menu</span>
+              <Navicon class="text-neutral-1 h-8 w-8" />
+          </a>
+        <nav id="menu" class="fixed hidden right[-200px] top-0 h-screen w-1/4 z-50 bg-neutral-11 bg-opacity-50" aria-label="Main menu">
+            <a href="#" id="menu-close" class="menu-close" aria-label="Close main menu">
+                <span class="sr-only">Close main menu</span>
+                <Close class="text-neutral-1 h-8 w-8" aria-hidden="true" />
+            </a>
+            <ul class="text-neutral-1">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Musings</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="backdrop" tabindex="-1" hidden></a>
+      </header>
+      <main class="h-screen flex flex-col justify-center max-w-4xl mx-auto">
+        <slot />
+      </main>
+  </body>
+</html>
+
+<style>
+html {
+  font-size: 18px;
+}
+
+body {
+  @apply h-screen w-screen bg-neutral-12 cursor-default relative overflow-hidden;
+}
+
+#menu:target {
+  right: 0;
+  display: block;
+} 
+
+#menu:target + .backdrop {
+  @apply bg-opacity-90 bg-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
+}
+</style>
