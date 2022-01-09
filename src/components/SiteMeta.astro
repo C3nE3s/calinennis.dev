@@ -1,52 +1,54 @@
 ---
 export interface Props {
-    title?: string;
-    description?: string;
-    ogImageSource?: string;
+  title?: string;
+  description?: string;
+  ogImageSource?: string;
 }
 
-const fallbackOpenGraphImageSource = "";
-const fallbackDescription = "I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio."
+const fallbackOpenGraphImageSource = '';
+const fallbackDescription =
+  'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
 
 /**
- * TODO: 
+ * TODO:
  * RSS Feed setup
  * Sitemap?
  * conditional favicon depending on theme?
  * default fallback open graph image
  */
 
-const { 
-    title, 
-    description, 
-    ogImageSource, 
-} = Astro.props;
+const { title, description, ogImageSource } = Astro.props;
 ---
 
-
 <!-- Common -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+<title>{title ? title + ' - calinennis.dev' : 'calinennis.dev'}</title>
+<meta name="title" content={title ? title : 'calinennis.dev'} />
+<meta name="description" content={description ?? fallbackDescription} />
 
-<title>{title ? title + " - calinennis.dev" : "calinennis.dev"}</title>
-<meta name="title" content={title ? title : "calinennis.dev"}>  
-<meta name="description" content={description ?? fallbackDescription}>
-
-<link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")}>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href={Astro.resolve('../styles/global.css')}
+/>
 
 <!-- RSS -->
 <!-- <link rel="alternate" type="application/rss+xml" href="/feed/posts.xml"> -->
 
 <!-- OpenGraph -->
-<meta property="og:title" content={title}>
-<meta property="og:description" content={description ?? fallbackDescription}>
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description ?? fallbackDescription} />
 {ogImageSource && (<meta property="og:image" content={ogImageSource}>)}
 
 <!-- Twitter -->
-<meta name="twitter:card" content={ogImageSource ? 'summary_large_image' : 'summary'}>
-<meta name="twitter:site" content="@calin_ennis">
-<meta name="twitter:title" content={title}>
-<meta name="twitter:description" content={description ?? fallbackDescription}>
+<meta
+  name="twitter:card"
+  content={ogImageSource ? 'summary_large_image' : 'summary'}
+/>
+<meta name="twitter:site" content="@calin_ennis" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description ?? fallbackDescription} />
 {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}

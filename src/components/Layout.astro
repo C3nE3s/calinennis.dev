@@ -1,8 +1,7 @@
 ---
 import SiteMeta from './SiteMeta.astro';
-import Navicon from '~icons/ei/navicon';
-import Close from '~icons/ei/close'
-
+import Close from '~icons/system-uicons/cross';
+import Menu from '~icons/system-uicons/menu-hamburger';
 
 export interface Props {
   showLogo?: boolean;
@@ -11,57 +10,73 @@ export interface Props {
   ogImageSource?: string;
 }
 
-const {
-    showLogo = true,
-    title, 
-    description, 
-    ogImageSource, 
-} = Astro.props;
+const { showLogo = true, title, description, ogImageSource } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <SiteMeta {description} {title} {ogImageSource}/>
+    <SiteMeta {description} {title} {ogImageSource} />
   </head>
   <body>
-      <header class="fixed top-0 left-0 right-0 bg-transparent flex justify-end py-4 pr-4">
-          <a href="#menu" id="menu-toggle" class="menu-toggle" aria-label="Open main menu">
-              <span class="sr-only">Open main menu</span>
-              <Navicon class="text-neutral-1 h-8 w-8" />
+    <header class="w-full fixed top-0 left-0 gutter">
+      <div
+        class="h-16 sm:h-24 flex flex-row justify-end items-center"
+      >
+        <a
+          href="#menu"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Open main menu"
+        >
+          <span class="sr-only">Open main menu</span>
+          <Menu className="text-neutral-2 h-8 w-8" />
+        </a>
+      </div>
+      <nav
+        id="menu"
+        class="fixed hidden right[-200px] top-0 h-screen min-w-[350px] w-full md:w-1/5 z-50 bg-gradient-to-b from-neutral-12 to-neutral-11 opacity-80 px-4 xs:px-8 border-l-2 border-l-neutral-11"
+        aria-label="Main menu"
+      >
+        <div class="flex justify-end items-center h-16 xs:h-24 mb-8">
+          <a href="#" id="menu-close" aria-label="Close main menu">
+            <span class="sr-only">Close main menu</span>
+            <Close className="text-neutral-2 h-8 w-8" aria-hidden="true" />
           </a>
-        <nav id="menu" class="fixed hidden right[-200px] top-0 h-screen w-1/4 z-50 bg-neutral-11 bg-opacity-50" aria-label="Main menu">
-            <a href="#" id="menu-close" class="menu-close" aria-label="Close main menu">
-                <span class="sr-only">Close main menu</span>
-                <Close class="text-neutral-1 h-8 w-8" aria-hidden="true" />
-            </a>
-            <ul class="text-neutral-1">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Musings</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="backdrop" tabindex="-1" hidden></a>
-      </header>
-      <main class="h-screen flex flex-col justify-center max-w-4xl mx-auto">
-        <slot />
-      </main>
+        </div>
+        <ul
+          class="text-neutral-1 font-display uppercase text-xl tracking-widest font-thin flex flex-col justify-start items-end space-y-2 px-3"
+        >
+          <li><a href="#">About</a></li>
+          <li><a href="#">Musings</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="backdrop" tabindex="-1" hidden></a>
+    </header>
+    <main class="gutter">
+      <slot />
+    </main>
   </body>
 </html>
 
 <style>
-html {
-  font-size: 18px;
-}
+  html {
+    font-size: 18px;
+  }
 
-body {
-  @apply h-screen w-screen bg-neutral-12 cursor-default relative overflow-hidden;
-}
+  body {
+    @apply h-screen w-screen cursor-default relative overflow-x-hidden bg-gradient-to-bl from-brand-12 to-neutral-12;
+  }
 
-#menu:target {
-  right: 0;
-  display: block;
-} 
+  .gutter {
+    @apply px-8 md:px-20 lg:px-48;
+  }
 
-#menu:target + .backdrop {
-  @apply bg-opacity-90 bg-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
-}
+  #menu:target {
+    right: 0;
+    display: block;
+  }
+
+  #menu:target + .backdrop {
+    @apply opacity-95 bg-gradient-to-l from-neutral-10 to-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
+  }
 </style>
