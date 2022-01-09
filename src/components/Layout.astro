@@ -17,9 +17,9 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
     <SiteMeta {description} {title} {ogImageSource} />
   </head>
   <body>
-    <header class="w-full fixed top-0 left-0 gutter">
+    <header class="w-screen fixed top-0 left-0">
       <div
-        class="h-16 sm:h-24 flex flex-row justify-end items-center"
+        class="w-4/5 md:w-[85%] mx-auto py-6 sm:py-12 flex flex-row justify-end items-center"
       >
         <a
           href="#menu"
@@ -28,22 +28,22 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
           aria-label="Open main menu"
         >
           <span class="sr-only">Open main menu</span>
-          <Icon pack="radix-icons" name="hamburger-menu" class="text-neutral-2 h-8 w-8" />
+          <Icon pack="radix-icons" name="hamburger-menu" class=" text-neutral-11 dark:text-neutral-2 h-6 w-6 sm:h-8 sm:w-8" />
         </a>
       </div>
       <nav
         id="menu"
-        class="fixed hidden right[-200px] top-0 h-screen min-w-[350px] w-full md:w-1/5 z-50 bg-gradient-to-b from-neutral-12 to-neutral-11 opacity-80 px-4 xs:px-8 border-l-2 border-l-neutral-11"
+        class="fixed hidden right[-200px] top-0 h-screen min-w-[350px] w-full md:w-1/5 z-50 px-8 md:px-16 border-l-2 border-l-neutral-2 bg-gradient-to-b from-neutral-1 via-brand-1 to-neutral-2 dark:border-l-neutral-11 dark:from-neutral-12 dark:via-brand-12 dark:to-brand-11 opacity-80"
         aria-label="Main menu"
       >
-        <div class="flex justify-end items-center h-16 xs:h-24 mb-8">
+        <div class="flex justify-end items-center py-6 sm:py-12">
           <a href="#" id="menu-close" aria-label="Close main menu">
             <span class="sr-only">Close main menu</span>
-            <Icon pack="radix-icons" name="cross-1" class="text-neutral-2 h-8 w-8" />
+            <Icon pack="radix-icons" name="cross-1" class="text-neutral-11 dark:text-neutral-2 h-8 w-8" />
           </a>
         </div>
         <ul
-          class="text-neutral-1 font-display uppercase text-xl tracking-widest font-thin flex flex-col justify-start items-end space-y-2 px-3"
+          class=" font-display uppercase text-xl tracking-widest font-thin flex flex-col justify-start items-end space-y-2"
         >
           <li><a href="#">About</a></li>
           <li><a href="#">Musings</a></li>
@@ -51,7 +51,7 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
       </nav>
       <a href="#" class="backdrop" tabindex="-1" hidden></a>
     </header>
-    <main class="gutter">
+    <main class="w-4/5 mx-auto">
       <slot />
     </main>
   </body>
@@ -63,11 +63,7 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
   }
 
   body {
-    @apply h-screen w-screen cursor-default relative overflow-x-hidden bg-gradient-to-bl from-brand-12 to-neutral-12;
-  }
-
-  .gutter {
-    @apply px-8 md:px-20 lg:px-48;
+    @apply text-base text-neutral-12 bg-neutral-1 dark:text-neutral-1 dark:bg-neutral-12;
   }
 
   #menu:target {
@@ -76,6 +72,6 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
   }
 
   #menu:target + .backdrop {
-    @apply opacity-95 bg-gradient-to-l from-neutral-10 to-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
+    @apply opacity-95 bg-gradient-to-l from-neutral-3 to-neutral-1 dark:from-neutral-12 dark:to-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
   }
 </style>
