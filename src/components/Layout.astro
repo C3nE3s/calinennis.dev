@@ -1,7 +1,6 @@
 ---
 import SiteMeta from './SiteMeta.astro';
-import Close from '~icons/system-uicons/cross';
-import Menu from '~icons/system-uicons/menu-hamburger';
+import { Icon } from 'astro-icon';
 
 export interface Props {
   showLogo?: boolean;
@@ -29,7 +28,7 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
           aria-label="Open main menu"
         >
           <span class="sr-only">Open main menu</span>
-          <Menu className="text-neutral-2 h-8 w-8" />
+          <Icon pack="radix-icons" name="hamburger-menu" class="text-neutral-2 h-8 w-8" />
         </a>
       </div>
       <nav
@@ -40,7 +39,7 @@ const { showLogo = true, title, description, ogImageSource } = Astro.props;
         <div class="flex justify-end items-center h-16 xs:h-24 mb-8">
           <a href="#" id="menu-close" aria-label="Close main menu">
             <span class="sr-only">Close main menu</span>
-            <Close className="text-neutral-2 h-8 w-8" aria-hidden="true" />
+            <Icon pack="radix-icons" name="cross-1" class="text-neutral-2 h-8 w-8" />
           </a>
         </div>
         <ul
