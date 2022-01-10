@@ -65,6 +65,7 @@ module.exports = {
       '4xl': '4.209rem',
       '5xl': '5.61rem',
       '6xl': '7.478rem',
+      '7xl': '9.969rem',
     },
     extend: {
       fontFamily: {
