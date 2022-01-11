@@ -1,6 +1,20 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "preserve",
+    "lib": ["dom", "es6", "es7"],
+    "sourceMap": true,
     "moduleResolution": "node",
-    "types": ["unplugin-icons/types/preact"]
-  }
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "allowJs": true,
+    "baseUrl": "src"
+  },
+  "include": ["./src/**/*"]
 }
