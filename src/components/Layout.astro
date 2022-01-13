@@ -13,7 +13,7 @@ const fallbackDescription =
 const { title, description, ogImageSource } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,12 +26,6 @@ const { title, description, ogImageSource } = Astro.props;
     <title>{title ? title + ' - calinennis.dev' : 'calinennis.dev'}</title>
     <meta name="title" content={title ? title : 'calinennis.dev'} />
     <meta name="description" content={description ?? fallbackDescription} />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href={Astro.resolve('../styles/global.css')}
-    />
 
     <!-- RSS -->
     <!-- <link rel="alternate" type="application/rss+xml" href="/feed/posts.xml"> -->
@@ -62,3 +56,12 @@ const { title, description, ogImageSource } = Astro.props;
     </main>
   </body>
 </html>
+
+<style global>
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--neutral-1);
+    color: var(--neutral-12);
+    overflow: hidden;
+  }
+</style>
