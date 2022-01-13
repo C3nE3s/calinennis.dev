@@ -1,77 +1,64 @@
 ---
-import SiteMeta from './SiteMeta.astro';
-import { Icon } from 'astro-icon';
+import { Header } from './Header';
 
 export interface Props {
-  showLogo?: boolean;
   title?: string;
   desription?: string;
   ogImageSource?: string;
 }
 
-const { showLogo = true, title, description, ogImageSource } = Astro.props;
+const fallbackDescription =
+  'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
+
+const { title, description, ogImageSource } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <SiteMeta {description} {title} {ogImageSource} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href={Astro.resolve('../styles/global.css')}
+    />
+    <title>{title ? title + ' - calinennis.dev' : 'calinennis.dev'}</title>
+    <meta name="title" content={title ? title : 'calinennis.dev'} />
+    <meta name="description" content={description ?? fallbackDescription} />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href={Astro.resolve('../styles/global.css')}
+    />
+
+    <!-- RSS -->
+    <!-- <link rel="alternate" type="application/rss+xml" href="/feed/posts.xml"> -->
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description ?? fallbackDescription}
+    />
+    {ogImageSource && (<meta property="og:image" content={ogImageSource}>)}
+
+    <!-- Twitter -->
+    <meta
+      name="twitter:card"
+      content={ogImageSource ? 'summary_large_image' : 'summary'}
+    />
+    <meta name="twitter:site" content="@calin_ennis" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={description ?? fallbackDescription}
+    />
+    {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}
   </head>
   <body>
-    <header class="w-screen fixed top-0 left-0">
-      <div
-        class="w-4/5 md:w-[85%] mx-auto py-6 sm:py-12 flex flex-row justify-end items-center"
-      >
-        <a
-          href="#menu"
-          id="menu-toggle"
-          class="menu-toggle"
-          aria-label="Open main menu"
-        >
-          <span class="sr-only">Open main menu</span>
-          <Icon pack="radix-icons" name="hamburger-menu" class=" text-neutral-11 dark:text-neutral-2 h-6 w-6 sm:h-8 sm:w-8" />
-        </a>
-      </div>
-      <nav
-        id="menu"
-        class="fixed hidden right[-200px] top-0 h-screen min-w-[350px] w-full md:w-1/5 z-50 px-8 md:px-16 border-l-2 border-l-neutral-2 bg-gradient-to-b from-neutral-1 via-brand-1 to-neutral-2 dark:border-l-neutral-11 dark:from-neutral-12 dark:via-brand-12 dark:to-brand-11 opacity-80"
-        aria-label="Main menu"
-      >
-        <div class="flex justify-end items-center py-6 sm:py-12">
-          <a href="#" id="menu-close" aria-label="Close main menu">
-            <span class="sr-only">Close main menu</span>
-            <Icon pack="radix-icons" name="cross-1" class="text-neutral-11 dark:text-neutral-2 h-8 w-8" />
-          </a>
-        </div>
-        <ul
-          class=" font-display uppercase text-xl tracking-widest font-thin flex flex-col justify-start items-end space-y-2"
-        >
-          <li><a href="#">About</a></li>
-          <li><a href="#">Musings</a></li>
-        </ul>
-      </nav>
-      <a href="#" class="backdrop" tabindex="-1" hidden></a>
-    </header>
-    <main class="w-4/5 mx-auto">
+    <Header />
+    <main>
       <slot />
     </main>
   </body>
 </html>
-
-<style>
-  html {
-    font-size: 18px;
-  }
-
-  body {
-    @apply text-base text-neutral-12 bg-neutral-1 dark:text-neutral-1 dark:bg-neutral-12;
-  }
-
-  #menu:target {
-    right: 0;
-    display: block;
-  }
-
-  #menu:target + .backdrop {
-    @apply opacity-95 bg-gradient-to-l from-neutral-3 to-neutral-1 dark:from-neutral-12 dark:to-neutral-12 absolute block top-0 left-0 h-screen w-screen z-40;
-  }
-</style>
