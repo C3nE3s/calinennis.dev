@@ -1,13 +1,15 @@
+import './styles.scss';
+
 export const Header: React.FC = () => (
   <header>
-    <div>
+    <div className="toolbar">
       <a href="#menu" id="menu-toggle" aria-label="Open main menu">
         <span className="sr-only">Open main menu</span>
         <IconRadixIconsHamburgerMenu />
       </a>
     </div>
     <nav id="menu" aria-label="Main menu">
-      <div>
+      <div className="close-container">
         <a href="#" id="menu-close" aria-label="Close main menu">
           <span className="sr-only">Close main menu</span>
           <IconRadixIconsCross1 />
@@ -22,6 +24,6 @@ export const Header: React.FC = () => (
         </li>
       </ul>
     </nav>
-    <a href="#" tabIndex={-1} hidden></a>
+    <a href="#" tabIndex={-1} hidden className="backdrop"></a>
   </header>
 );
