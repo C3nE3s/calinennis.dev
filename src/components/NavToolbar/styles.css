@@ -1,0 +1,57 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+.toolbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  padding: 2rem 5vw;
+  color: var(--neutral-12);
+}
+
+@media screen and (min-width: 1024px) {
+  .toolbar-container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 2rem 0;
+  }
+}
+.toolbar-container > * {
+  padding-left: 1rem;
+}
+.toolbar-container > a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 100;
+}
+.toolbar-container > span {
+  color: var(--neutral-6);
+  cursor: default;
+}
+
+.toolbar-container > button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: none;
+  aspect-ratio: 1/1;
+  border: none;
+}
+
+.toolbar-container > button:hover {
+  cursor: pointer;
+}
+
+.toolbar-container > button > svg {
+  color: var(--neutral-12);
+  height: var(--font-size-1);
+}
