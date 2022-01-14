@@ -1,7 +1,3 @@
-import Icons from 'unplugin-icons/vite';
-import IconsResolver from 'unplugin-icons/resolver';
-import AutoImport from 'unplugin-auto-import/vite';
-
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -13,20 +9,5 @@ import AutoImport from 'unplugin-auto-import/vite';
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   // Set "renderers" to "[]" to disable all default, builtin component support.
-  renderers: ['@astrojs/renderer-react'],
-  vite: {
-    plugins: [
-      AutoImport({
-        resolvers: [
-          IconsResolver({
-            prefix: 'Icon',
-            extension: 'jsx',
-          }),
-        ],
-      }),
-      Icons({
-        compiler: 'jsx', // or 'solid'
-      }),
-    ],
-  },
+  renderers: ['@astrojs/renderer-react', '@astrojs/renderer-solid'],
 });
