@@ -22,7 +22,8 @@
   --font-lineheight-3: 1.5;
   --font-lineheight-4: 1.75;
   --font-lineheight-5: 2;
-  --font-letterspacing-0: -0.05em;
+  --font-letterspacing-00: -0.05em;
+  --font-letterspacing-0: -0.025em;
   --font-letterspacing-1: 0.025em;
   --font-letterspacing-2: 0.05em;
   --font-letterspacing-3: 0.075em;

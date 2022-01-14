@@ -2,33 +2,147 @@
 import Layout from '../components/Layout.astro';
 ---
 
-<Layout>
-  <section
-    class="h-screen flex flex-col justify-center space-y-8 md:space-y-16 lg:space-y-8"
-  >
-    <figure
-      class="flex flex-col-reverse justify-start items-center md:flex-row md:space-x-8 md:justify-center"
-    >
-      <figcaption class="text-center md:text-right">
+<Layout header="toolbar">
+  <section>
+    <figure>
+      <figcaption>
         <span
-          class="block uppercase text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-thin leading-none md:self-end md:mr-[-4px] lg:mr-[-8px]"
+          class="first-name md:text-5xl lg:text-6xl xl:text-7xl md:self-end md:mr-[-4px] lg:mr-[-8px]"
           >Calin</span
         >
         <span
-          class="block uppercase text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-thin leading-none md:self-end tracking-widest md:mr-[-8px] lg:mr-[-16px]"
+          class="last-name md:text-4xl lg:text-5xl xl:text-6xl md:self-end md:mr-[-8px] lg:mr-[-16px]"
           >Ennis</span
         >
-        <p
-          class="text-neutral-9 dark:text-neutral-3 font-sans font-thin tracking-tight text-base xl:text-xl text-center md:text-right leading-tight md:leading-none pt-4 md:pt-0"
-        >
-          Web Developer & Consultant
-        </p>
+        <hr class="seperator" />
+        <p class="job-role">Web Developer & Consultant</p>
       </figcaption>
-      <img
-        class="rounded-full rotate-3 -z-50 bg-neutral-12 w-auto md:w-72 lg:w-96"
-        src="/images/avatar_dark.png"
-        alt="picture of calin ennis"
-      />
+      <img src="/images/avatar_dark.png" alt="picture of calin ennis" />
     </figure>
   </section>
 </Layout>
+
+<style lang="scss">
+  section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+  }
+
+  figcaption {
+    text-align: center;
+    padding-top: var(--size-6);
+  }
+
+  figcaption > span {
+    display: block;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-lineheight-00);
+  }
+
+  .first-name {
+    font-size: clamp(var(--font-size-3), 5vw + 3.25rem, var(--font-size-7));
+  }
+
+  .last-name {
+    font-size: clamp(var(--font-size-2), 5vw + 2rem, var(--font-size-6));
+    letter-spacing: var(--font-letterspacing-4);
+  }
+
+  .seperator {
+    display: none;
+    color: var(--neutral-6);
+  }
+
+  .job-role {
+    color: var(--neutral-11);
+    font-weight: var(--font-weight-1);
+    letter-spacing: var(--font-letterspacing-0);
+    line-height: var(--font-lineheight-1);
+    text-align: center;
+  }
+
+  img {
+    aspect-ratio: 1/1;
+    width: 70%;
+    transform: rotate(3deg);
+    z-index: -99;
+  }
+
+  @media screen and (min-width: 480px) {
+    .first-name {
+      font-size: clamp(var(--font-size-4), 4vw + 4rem, var(--font-size-7));
+    }
+    .last-name {
+      font-size: clamp(var(--font-size-3), 4vw + 3rem, var(--font-size-6));
+      letter-spacing: var(--font-letterspacing-2);
+    }
+    img {
+      width: 55%;
+    }
+  }
+
+  @media screen and (min-width: 768) {
+    .job-role {
+      font-size: var(--font-size-2);
+    }
+
+    img {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    figure {
+      flex-direction: row;
+    }
+
+    figure > * {
+      padding: 0 var(--size-6);
+    }
+
+    figcaption {
+      text-align: right;
+    }
+
+    .first-name {
+      font-size: var(--font-size-7);
+      margin-right: -8px;
+    }
+
+    .last-name {
+      font-size: var(--font-size-6);
+      margin-right: -8px;
+    }
+
+    .seperator {
+      display: inline-block;
+      width: 70%;
+      margin: 0.75rem 0 0.75rem auto;
+    }
+
+    .job-role {
+      font-size: var(--font-size-2);
+      text-align: right;
+      line-height: var(--font-lineheight-0);
+      margin: 0;
+    }
+
+    img {
+      height: 70%;
+      border-radius: 100%;
+      width: auto;
+    }
+  }
+</style>

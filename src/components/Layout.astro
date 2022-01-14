@@ -1,20 +1,45 @@
 ---
-import { Header } from './Header';
+import { NavMenu } from './NavMenu';
+import NavToolbar from './NavToolbar';
 
 export interface Props {
   title?: string;
   desription?: string;
   ogImageSource?: string;
+  header?: "menu" | "toolbar";
 }
 
 const fallbackDescription =
   'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
 
-const { title, description, ogImageSource } = Astro.props;
+const { title, description, ogImageSource, header = "menu" } = Astro.props;
 ---
 
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
+    <script>
+      const el = document.querySelector('html');
+      if (
+        window.localStorage.theme === 'dark' ||
+        (!('theme' in window.localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        el.setAttribute('data-theme', 'dark');
+        if (!('theme' in window.localStorage)) {
+          window.localStorage.theme = 'dark';
+        }
+      } else {
+        el.setAttribute('data-theme', 'light');
+        if (!('theme' in window.localStorage)) {
+          window.localStorage.theme = 'light';
+        }
+      }
+
+      window.addEventListener('storage', () => {
+        const theme = localStorage.getItem('theme')
+        el.setAttribute('data-theme', theme);
+      });
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -50,7 +75,7 @@ const { title, description, ogImageSource } = Astro.props;
     {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}
   </head>
   <body>
-    <Header />
+    <NavToolbar client:idle="solid" />
     <main>
       <slot />
     </main>
@@ -63,5 +88,7 @@ const { title, description, ogImageSource } = Astro.props;
     background-color: var(--neutral-1);
     color: var(--neutral-12);
     overflow: hidden;
+    max-width: 1080px;
+    margin: 0 auto !important;
   }
 </style>
