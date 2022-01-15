@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@astrojs/renderer-preact': ^0.4.0
   '@astrojs/renderer-react': ^0.4.0
   '@astrojs/renderer-solid': ^0.3.1
   '@types/node': ^17.0.5
@@ -16,6 +17,7 @@ specifiers:
   typescript: ^4.5.4
 
 devDependencies:
+  '@astrojs/renderer-preact': 0.4.0
   '@astrojs/renderer-react': 0.4.0
   '@astrojs/renderer-solid': 0.3.1
   '@types/node': 17.0.5
@@ -94,6 +96,17 @@ packages:
   /@astrojs/prism/0.4.0:
     resolution: {integrity: sha512-dbB9Acm9Z/GDqhxwPv7W/DlZAScWNZGzFz8klTqDo9kaWD6O3qsZpXn641GuGeXdNWkqTmkinu37ZJHSxaDB7A==}
     engines: {node: ^14.15.0 || >=16.0.0}
+    dev: true
+
+  /@astrojs/renderer-preact/0.4.0:
+    resolution: {integrity: sha512-pid/tz6c0V07TZNstZILBSXBF/HPCyfnWLfwtw2F66rE+TI1EpZmlZPNz9X0r28n0pBzTfNzu2ZwIvWs+CuTcQ==}
+    engines: {node: ^14.15.0 || >=16.0.0}
+    dependencies:
+      '@babel/plugin-transform-react-jsx': 7.16.5
+      preact: 10.5.15
+      preact-render-to-string: 5.1.19_preact@10.5.15
+    transitivePeerDependencies:
+      - '@babel/core'
     dev: true
 
   /@astrojs/renderer-preact/0.4.0_@babel+core@7.16.5:

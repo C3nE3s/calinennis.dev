@@ -1,6 +1,6 @@
 ---
 import { NavMenu } from './NavMenu';
-import NavToolbar from './NavToolbar';
+import {NavToolbar} from './NavToolbar';
 
 export interface Props {
   title?: string;
@@ -13,6 +13,8 @@ const fallbackDescription =
   'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
 
 const { title, description, ogImageSource, header = "menu" } = Astro.props;
+
+const hasNavMenu = header === 'menu';
 ---
 
 <html lang="en">
@@ -36,7 +38,8 @@ const { title, description, ogImageSource, header = "menu" } = Astro.props;
       }
 
       window.addEventListener('storage', () => {
-        const theme = localStorage.getItem('theme')
+        const theme = localStorage.getItem('theme');
+        console.log(theme, "I AM LISTENING");
         el.setAttribute('data-theme', theme);
       });
     </script>
@@ -75,7 +78,7 @@ const { title, description, ogImageSource, header = "menu" } = Astro.props;
     {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}
   </head>
   <body>
-    <NavToolbar client:idle="solid" />
+    {hasNavMenu ? <NavMenu /> : <NavToolbar client:only="preact" />}
     <main>
       <slot />
     </main>
