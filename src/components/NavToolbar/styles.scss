@@ -14,13 +14,6 @@ header {
   color: var(--neutral-12);
 }
 
-@media screen and (min-width: 1024px) {
-  .toolbar-container {
-    max-width: 1080px;
-    margin: auto;
-    padding: 2rem 0;
-  }
-}
 .toolbar-container > * {
   padding-left: 1rem;
 }
@@ -54,4 +47,16 @@ a:active {
 .toolbar-container > button > svg {
   color: var(--neutral-12);
   height: var(--font-size-1);
+}
+
+@media screen and (min-width: 1024px) {
+  .toolbar-container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 2rem 0;
+    font-size: var(--font-size-2);
+  }
+  .toolbar-container > button > svg {
+    height: var(--font-size-2);
+  }
 }
