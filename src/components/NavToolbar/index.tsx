@@ -22,9 +22,9 @@ export const NavToolbar: FunctionalComponent = () => {
   return (
     <header>
       <div className="toolbar-container">
-        <a href="">About</a>
+        <a href="/about">About</a>
         <span>|</span>
-        <a href="">Musings</a>
+        <a href="/musings">Musings</a>
         <span>|</span>
         <button onClick={() => updateTheme(isLight ? 'dark' : 'light')}>
           {isLight ? (
