@@ -7,7 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write --plugin-search-dir=. .",
+    "format": "prettier --write --ignore-unknown --plugin-search-dir=. .",
     "prettier:check": "prettier --check --plugin-search-dir=. .",
     "prepare": "husky install"
   },

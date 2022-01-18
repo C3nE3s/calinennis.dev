@@ -1,18 +1,18 @@
 ---
 import { NavMenu } from './NavMenu';
-import {NavToolbar} from './NavToolbar';
+import { NavToolbar } from './NavToolbar';
 
 export interface Props {
   title?: string;
   desription?: string;
   ogImageSource?: string;
-  header?: "menu" | "toolbar";
+  header?: 'menu' | 'toolbar';
 }
 
 const fallbackDescription =
   'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
 
-const { title, description, ogImageSource, header = "menu" } = Astro.props;
+const { title, description, ogImageSource, header = 'menu' } = Astro.props;
 
 const hasNavMenu = header === 'menu';
 ---
@@ -39,7 +39,7 @@ const hasNavMenu = header === 'menu';
 
       window.addEventListener('storage', () => {
         const theme = localStorage.getItem('theme');
-        console.log(theme, "I AM LISTENING");
+        console.log(theme, 'I AM LISTENING');
         el.setAttribute('data-theme', theme);
       });
     </script>
