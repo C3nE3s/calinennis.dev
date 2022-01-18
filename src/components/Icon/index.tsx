@@ -10,7 +10,8 @@ interface Props {
     | 'discord'
     | 'linkedin'
     | 'github'
-    | 'email';
+    | 'email'
+    | 'document';
 }
 
 export const Icon: React.FC<Props> = ({ type }) => {
@@ -101,9 +102,24 @@ export const Icon: React.FC<Props> = ({ type }) => {
       return (
         <svg width="1em" height="1em" viewBox="0 0 36 36">
           <path
-            class="clr-i-outline clr-i-outline-path-1"
             d="M32 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-1.54 22H5.66l7-7.24l-1.44-1.39L4 26.84V9.52l12.43 12.37a2 2 0 0 0 2.82 0L32 9.21v17.5l-7.36-7.36l-1.41 1.41zM5.31 8h25.07L17.84 20.47z"
             fill="currentColor"></path>
+        </svg>
+      );
+    case 'document':
+      return (
+        <svg width="1em" height="1em" viewBox="0 0 21 21">
+          <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round">
+            <path d="M16.5 15.5v-10a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2z"></path>
+            <path d="M7.5 8.5h5"></path>
+            <path d="M7.5 10.5h6"></path>
+            <path d="M7.5 12.5h3"></path>
+          </g>
         </svg>
       );
   }

@@ -4,32 +4,39 @@ import { Icon } from '../components/Icon';
 ---
 
 <Layout header="toolbar">
-  <h1>About</h1>
-  <section>
-    <div class="col-tall">
-      <h2>Personal</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eius nobis neque ut velit facere obcaecati delectus natus, autem optio. Numquam dolor voluptate nihil sed architecto tempora nulla quas eum?</p>
-      <h2>Professional</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non praesentium maiores harum, omnis, dolores ratione sapiente rerum corrupti architecto unde dolor autem temporibus voluptatem, nesciunt odit aliquam facere. Consequatur, perspiciatis?</p>
-    </div>
-    <div class="col-short">
-      <h2>Contact</h2>
-      <p>You can find me in the interwebs below:</p>
-      <div class="social-links">
-        <Icon type="twitter" />
-        <Icon type="linkedin" />
-        <Icon type="github" />
-        <Icon type="email" />
+  <div class="page-container">
+    <h1>About</h1>
+    <section>
+      <div class="description">
+        <h2>Professional</h2>
+        <p>
+          I am a web developer and consultant based in Atlanta. I can best be described as a front-end full stack developer. I opperate from a product and customer centric perspective, always choosing technologies and solutions that benifit the end user. I love leading teams and working in collaborative and agile enviroments. I believe in being egoless and open while still exercising extreme ownership and responsibility.<br/><br/> I am currently looking for new opportunities. If your organization likes to ship and has opportunites for both carrer and technincal growth, please get in contact. 
+        </p>
       </div>
-    </div>
-  </section>
+      <div class="links">
+        <h2>Contact</h2>
+        <ul>
+          <li><Icon type="twitter" /> twitter</li>
+          <li><Icon type="linkedin" /> linked-in</li>
+          <li><Icon type="github" /> github</li>
+          <li><Icon type="document" /> resume</li>
+          <li><Icon type="email" /> email</li>
+        </ul>
+        
+        
+      </div>
+    </section>
+  </div>
 </Layout>
 
 
 <style lang="scss">
+  .page-container {
+    margin-top: calc(5vw + 6rem);
+  }
   h1 {
     width: fit-content;
-    margin: 10vh auto;
+    margin: 0 auto var(--size-9) auto;
     font-family: var(--font-display);
     font-weight: var(--font-weight-1);
     text-align: right;
@@ -63,24 +70,36 @@ import { Icon } from '../components/Icon';
   section {
     width: var(--size-content-1);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: var(--size-10);;
+    display: flex;
+    flex-wrap: wrap;
+
+    & > :first-child {
+      padding-right: var(--size-10);
+    }
   }
 
-  .col-tall {
-    grid-area: 1 / 1 / 3 / 2;
+  .description {
+    flex: 3 1 30ch;
   }
 
-  .col-short {
-    grid-area: 1 / 2 / 2 / 3;
+  .links {
+    flex: 2 1 15ch;
+    display: flex;
+    flex-direction: column;
+
+    & > ul {
+      padding: 0;
+      color: var(--brand-12);
+      font-family: var(--font-sans);
+      font-size: var(--font-size-0);
+      tex-align: left;
+    }
   }
 
   h2 {
     position: relative;
     font-family: var(--font-sans);
-    letter-spacing: var(--font-letterspacing-3);
+    letter-spacing: var(--font-letterspacing-2);
     width: fit-content;
 
     &:first-letter {
@@ -90,7 +109,7 @@ import { Icon } from '../components/Icon';
       text-transform: uppercase;
       letter-spacing: var(--font-letterspacing-2);
       margin-right: var(--size-00);
-      text-decoration: none;
+      padding-right: 1px;
     }
     &:before {
       position: absolute;
@@ -106,18 +125,13 @@ import { Icon } from '../components/Icon';
   }
 
   p {
-    text-align: justify
+    text-align: left;
+    line-height: var(--font-lineheight-2);
   }
 
-  .social-links {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    color: var(--brand-12)
+  .strikethrough {
+    text-decoration: line-through;
   }
-  
 
   @media screen and (min-width: 480px) {
         section {
