@@ -2,7 +2,7 @@
 import Layout from '../components/Layout.astro';
 ---
 
-<Layout header="toolbar">
+<Layout>
   <section>
     <figure>
       <figcaption>
@@ -24,23 +24,32 @@ import Layout from '../components/Layout.astro';
 
 <style lang="scss">
   section {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
-
   figure {
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
     align-items: center;
-    margin: 0;
+    gap: var(--size-4);
+    width: 100%;
+    padding: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    figure {
+      justify-content: space-between;
+      gap: 0;
+    }
   }
 
   figcaption {
     text-align: center;
-    padding-top: var(--size-6);
   }
 
   figcaption > span {
@@ -69,15 +78,17 @@ import Layout from '../components/Layout.astro';
     color: var(--neutral-11);
     font-weight: var(--font-weight-1);
     letter-spacing: var(--font-letterspacing-0);
-    line-height: var(--font-lineheight-1);
+    line-height: var(--font-lineheight-4);
     text-align: center;
   }
 
   img {
     aspect-ratio: 1/1;
-    width: 70%;
+    border-radius: 100%;
     transform: rotate(3deg);
-    z-index: -99;
+    width: 75vw;
+    max-width: calc(var(--max-screen-width) * (2 / 5));
+    box-shadow: var(--shadow-4);
   }
 
   @media screen and (min-width: 480px) {
@@ -88,8 +99,8 @@ import Layout from '../components/Layout.astro';
       font-size: clamp(var(--font-size-3), 4vw + 3rem, var(--font-size-6));
       letter-spacing: var(--font-letterspacing-2);
     }
-    img {
-      width: 55%;
+    .job-role {
+      font-size: 20px;
     }
   }
 
@@ -97,21 +108,9 @@ import Layout from '../components/Layout.astro';
     .job-role {
       font-size: var(--font-size-2);
     }
-
-    img {
-      width: 50%;
-    }
   }
 
   @media screen and (min-width: 1024px) {
-    figure {
-      flex-direction: row;
-    }
-
-    figure > * {
-      padding: 0 var(--size-6);
-    }
-
     figcaption {
       text-align: right;
     }
@@ -137,12 +136,6 @@ import Layout from '../components/Layout.astro';
       text-align: right;
       line-height: var(--font-lineheight-0);
       margin: 0;
-    }
-
-    img {
-      height: 70%;
-      border-radius: 100%;
-      width: auto;
     }
   }
 </style>

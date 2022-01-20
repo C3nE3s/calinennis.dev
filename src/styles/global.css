@@ -1,50 +1,20 @@
-@import 'normalize.css';
 @import 'fonts.css';
 @import 'vars.css';
+@import 'normalize.css';
 
 @media (prefers-reduced-motion: no-preference) {
   :focus {
     transition: outline-offset 0.25s ease;
     outline-offset: var(--size-1);
-    outline-color: var(--neutral-light-7);
+    outline-color: var(--brand-7);
+  }
+  [data-theme='dark']:focus {
+    outline-color: var(--accent-7);
   }
 }
 
 :root {
   font-size: 18px;
-}
-
-@each $side, $name, $space in (top, bottom, left, right), (t, b, l, r),
-  (000, 00, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-{
-  .m-$(space) {
-    margin: var(--size-$(space));
-  }
-  .mx-$(space) {
-    margin-right: var(--size-$(space));
-    margin-left: var(--size-$(space));
-  }
-  .my-$(space) {
-    margin-top: var(--size-$(space));
-    margin-bottom: var(--size-$(space));
-  }
-  .m$(name)-$(space) {
-    margin-$(side): var(--size-$(space));
-  }
-  .p-$(space) {
-    padding: var(--size-$(space));
-  }
-  .px-$(space) {
-    padding-right: var(--size-$(space));
-    padding-left: var(--size-$(space));
-  }
-  .py-$(space) {
-    padding-top: var(--size-$(space));
-    padding-bottom: var(--size-$(space));
-  }
-  .p$(name)-$(space) {
-    padding-$(side): var(--size-$(space));
-  }
 }
 
 .sr-only {

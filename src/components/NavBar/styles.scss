@@ -1,0 +1,152 @@
+header {
+  position: sticky;
+  top: 0;
+  color: var(--neutral-12);
+  border-bottom: 1px solid var(--neutral-6);
+}
+
+nav {
+  visibility: hidden;
+  position: absolute;
+  left: -200px;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  padding: var(--size-2) var(--size-7);
+  background-color: rgba($color: #ffffff, $alpha: 0.66);
+  backdrop-filter: saturate(180%) blur(5px);
+  z-index: 10;
+}
+
+[data-theme='dark'] {
+  nav {
+    background-color: rgba($color: #000000, $alpha: 0.85);
+  }
+}
+
+nav > ul > li {
+  line-height: var(--font-lineheight-4);
+  cursor: pointer;
+  font-size: var(--font-size-3);
+  width: fit-content;
+  text-decoration-skip-ink: auto;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-7);
+  text-decoration-thickness: 1px;
+  & svg {
+    font-size: var(--font-size-2);
+  }
+}
+[data-theme='dark']nav > ul > li {
+  text-decoration-color: var(--accent-7);
+}
+
+.toolbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--size-3) var(--size-7);
+  width: 100%;
+  max-width: var(--max-screen-width);
+  margin: 0 auto;
+}
+
+a[role='button'] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  aspect-ratio: 1/1;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .controls-left {
+    visibility: hidden;
+  }
+}
+@media (max-width: 768px) {
+  .not-on-small {
+    display: none;
+  }
+}
+
+.controls-right > * {
+  margin-left: 1rem;
+}
+.controls-right {
+  display: flex;
+  align-items: center;
+}
+
+.controls-right > a {
+  position: relative;
+}
+
+.controls-right > a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 2px;
+  bottom: -0.25rem;
+  left: 0;
+  background-color: var(--brand-8);
+  transform: scaleX(0);
+  transition: transform 0.175s ease;
+}
+
+[data-theme='dark'] {
+  .controls-right > a:before {
+    background-color: var(--accent-8);
+  }
+}
+
+.controls-right > a:hover::before {
+  transform: scaleX(1);
+}
+
+.controls-right > span {
+  color: var(--neutral-6);
+  font-size: var(--font-size-2);
+}
+.controls-right > span:hover {
+  cursor: default;
+}
+
+.theme-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  aspect-ratio: 1/1;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-button > svg {
+  color: var(--neutral-12);
+  height: var(--font-size-1);
+}
+
+@media (prefers-reduced-motion) {
+  #menu:target {
+    left: 0;
+    visibility: initial;
+  }
+}
+
+#menu:target {
+  @keyframes wipe-in-left {
+    from {
+      left: -200px;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  animation: 0.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-left both;
+  visibility: initial;
+}

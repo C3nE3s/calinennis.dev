@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, FunctionalComponent } from 'preact';
 
 interface Props {
   type:
@@ -14,7 +14,7 @@ interface Props {
     | 'document';
 }
 
-export const Icon: React.FC<Props> = ({ type }) => {
+const Icon: FunctionalComponent<Props> = ({ type }) => {
   switch (type) {
     case 'menu':
       return (
@@ -47,23 +47,21 @@ export const Icon: React.FC<Props> = ({ type }) => {
         <svg width="1em" height="1em" viewBox="0 0 15 15">
           <g fill="none">
             <path
-              d="M7.5 1.5v-1m0 13.99v-.998m6-5.997h1m-13 0h-1m2-4.996l-1-1m12 0l-1 1m-10 9.993l-1 1m12 0l-1-1m-2-4.997a2.999 2.999 0 0 1-3 2.998a2.999 2.999 0 1 1 3-2.998z"
-              stroke="currentColor"
-              strokeLinecap="square"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zM2.197 2.197a.5.5 0 0 1 .707 0L4.318 3.61a.5.5 0 0 1-.707.707L2.197 2.904a.5.5 0 0 1 0-.707zM.5 7a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm1.697 5.803a.5.5 0 0 1 0-.707l1.414-1.414a.5.5 0 1 1 .707.707l-1.414 1.414a.5.5 0 0 1-.707 0zM12.5 7a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm-1.818-2.682a.5.5 0 0 1 0-.707l1.414-1.414a.5.5 0 1 1 .707.707L11.39 4.318a.5.5 0 0 1-.707 0zM8 12.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2zm2.682-1.818a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 1 1-.707.707l-1.414-1.414a.5.5 0 0 1 0-.707zM5.5 7.5a2 2 0 1 1 4 0a2 2 0 0 1-4 0zm2-3a3 3 0 1 0 0 6a3 3 0 0 0 0-6z"
+              fill="currentColor"
             ></path>
           </g>
         </svg>
       );
     case 'moon':
       return (
-        <svg width="1em" height="1em" viewBox="0 0 15 15">
-          <g fill="none">
-            <path
-              d="M1.66 11.362A6.5 6.5 0 0 0 7.693.502a7 7 0 1 1-6.031 10.86z"
-              stroke="currentColor"
-              strokeLinejoin="round"
-            ></path>
-          </g>
+        <svg width="1em" height="1em" viewBox="0 0 24 24">
+          <path
+            d="M21.64 13a1 1 0 0 0-1.05-.14a8.05 8.05 0 0 1-3.37.73a8.15 8.15 0 0 1-8.14-8.1a8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69a1 1 0 0 0-.36-1.05zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14a9.79 9.79 0 0 0 2.1-.22a8.11 8.11 0 0 1-7.18 4.32z"
+            fill="currentColor"
+          ></path>
         </svg>
       );
     case 'twitter':
@@ -134,3 +132,5 @@ export const Icon: React.FC<Props> = ({ type }) => {
       );
   }
 };
+
+export default Icon;

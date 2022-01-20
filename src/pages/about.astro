@@ -1,9 +1,9 @@
 ---
 import Layout from '../components/Layout.astro';
-import { Icon } from '../components/Icon';
+import Icon from '../components/Icon';
 ---
 
-<Layout header="toolbar">
+<Layout>
   <div class="page-container">
     <h1>About</h1>
     <section>
@@ -45,7 +45,7 @@ import { Icon } from '../components/Icon';
     font-family: var(--font-display);
     font-weight: var(--font-weight-1);
     text-align: right;
-    font-size: var(--font-size-7);
+    font-size: clamp(var(--font-size-5), 18vw, var(--font-size-7));
     letter-spacing: var(--font-letterspacing-2);
     text-transform: uppercase;
     position: relative;
@@ -77,18 +77,16 @@ import { Icon } from '../components/Icon';
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-
-    & > :first-child {
-      padding-right: var(--size-10);
-    }
   }
 
   .description {
-    flex: 3 1 30ch;
+    flex: 3 1 40ch;
+    justify-self: center;
   }
 
   .links {
     flex: 2 1 15ch;
+    align-self: center;
     display: flex;
     flex-direction: column;
 

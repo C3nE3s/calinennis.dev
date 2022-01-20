@@ -175,6 +175,8 @@
   --neutral-10: hsl(55 1.7% 51.9%);
   --neutral-11: hsl(50 2% 43.1%);
   --neutral-12: hsl(50 6% 10%);
+
+  --max-screen-width: 1080px;
 }
 
 [data-theme='dark'] {

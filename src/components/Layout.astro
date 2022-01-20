@@ -1,20 +1,16 @@
 ---
-import { NavMenu } from './NavMenu';
-import { NavToolbar } from './NavToolbar';
+import NavBar from './NavBar';
 
 export interface Props {
   title?: string;
   desription?: string;
   ogImageSource?: string;
-  header?: 'menu' | 'toolbar';
 }
 
 const fallbackDescription =
   'I consult and develop software for the modern web. I specialize in Javascript and front-end technologies. This site acts as my personal blog and portfolio.';
 
-const { title, description, ogImageSource, header = 'menu' } = Astro.props;
-
-const hasNavMenu = header === 'menu';
+const { title, description, ogImageSource } = Astro.props;
 ---
 
 <html lang="en">
@@ -78,7 +74,7 @@ const hasNavMenu = header === 'menu';
     {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}
   </head>
   <body>
-    {hasNavMenu ? <NavMenu /> : <NavToolbar client:only="preact" />}
+    <NavBar client:only="preact" />
     <main>
       <slot />
     </main>
@@ -88,9 +84,17 @@ const hasNavMenu = header === 'menu';
 <style global>
   body {
     font-family: var(--font-sans);
+    font-weight: var(--font-weight-1);
     background-color: var(--neutral-1);
     color: var(--neutral-12);
-    max-width: 1080px;
-    margin: 0 auto !important;
+  }
+  main {
+    height: calc(100vh - 3rem);
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+    padding: 0 var(--size-7);
+    position: relative;
+    overflow-x: hidden;
+    z-index: -10;
   }
 </style>
