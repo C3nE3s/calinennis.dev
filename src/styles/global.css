@@ -8,9 +8,6 @@
     outline-offset: var(--size-1);
     outline-color: var(--brand-7);
   }
-  [data-theme='dark']:focus {
-    outline-color: var(--accent-7);
-  }
 }
 
 :root {

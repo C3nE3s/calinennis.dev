@@ -101,12 +101,6 @@ a[role='button'] {
   transition: transform 0.175s ease;
 }
 
-[data-theme='dark'] {
-  .controls-right > a:before {
-    background-color: var(--accent-8);
-  }
-}
-
 .controls-right > a:hover::before {
   transform: scaleX(1);
 }

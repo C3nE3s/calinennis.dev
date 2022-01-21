@@ -16,12 +16,6 @@ a:before {
   transition: transform 0.175s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  a:before {
-    background-color: var(--accent-8);
-  }
-}
-
 a[role='button']:hover::before {
   transform: none;
 }

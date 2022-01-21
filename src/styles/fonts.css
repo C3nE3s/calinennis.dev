@@ -30,19 +30,3 @@
   font-style: normal;
   font-display: fallback;
 }
-@font-face {
-  font-family: 'Merriweather';
-  src: local(Merriweather-Light),
-    url('../../public/fonts/Merriweather-Light.ttf') format('ttf');
-  font-weight: 300;
-  font-style: normal;
-  font-display: fallback;
-}
-@font-face {
-  font-family: 'Merriweather';
-  src: local(Merriweather-Regular),
-    url('../../public/fonts/Merriweather-Regular.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-}
