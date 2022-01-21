@@ -36,6 +36,11 @@ const NavBar: FunctionalComponent = () => {
             </a>
           </li>
           <li>
+            <a href="/" aria-label="Navigate to the homepage">
+              Home
+            </a>
+          </li>
+          <li>
             <a href="/about" aria-label="Find out more about me">
               About
             </a>
@@ -49,8 +54,12 @@ const NavBar: FunctionalComponent = () => {
       </nav>
       <div className="toolbar-container">
         <div className="controls-left">
+          <a href="/" className="hide-on-small" aria-label="Navigate Home">
+            <Icon type="signature" />
+          </a>
           <a
             href="#menu"
+            className="hide-on-large"
             id="menu-toggle"
             aria-label="Open main menu"
             role="button"
@@ -63,19 +72,19 @@ const NavBar: FunctionalComponent = () => {
           <a
             href="/about"
             aria-label="Find out more about me"
-            className="not-on-small"
+            className="hide-on-small"
           >
             About
           </a>
-          <span className="not-on-small">|</span>
+          <span className="hide-on-small">|</span>
           <a
             href="/musings"
             aria-label="Explore my blog"
-            className="not-on-small"
+            className="hide-on-small"
           >
             Musings
           </a>
-          <span className="not-on-small">|</span>
+          <span className="hide-on-small">|</span>
           <button
             className="theme-button"
             onClick={() => updateTheme(isLight ? 'dark' : 'light')}
