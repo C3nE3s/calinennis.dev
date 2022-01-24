@@ -7,5 +7,7 @@ tags:
 title: The Secrets of Seniority
 subtitle: the lesser talked about requirements needed to grow and become a more senior
   engineer
+description: The lesser known qualities needed to become a more senior developer and
+  engineer
 
 ---
