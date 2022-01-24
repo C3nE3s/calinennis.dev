@@ -26,5 +26,14 @@ fields:
   type: tag_list
   default: []
   label: tags
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: description
 pages:
 - src/pages/musings/the-secrets-of-seniority.md
