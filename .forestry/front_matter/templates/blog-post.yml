@@ -26,3 +26,5 @@ fields:
   type: tag_list
   default: []
   label: tags
+pages:
+- src/pages/musings/the-secrets-of-seniority.md
