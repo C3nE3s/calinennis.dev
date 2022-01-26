@@ -1,7 +1,6 @@
 import { h, FunctionalComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import Icon from '../Icon';
-import styles from './styles.module.css';
 
 type ThemeLiteral = 'light' | 'dark';
 
@@ -20,9 +19,19 @@ const ThemeSwitch: FunctionalComponent = () => {
 
   const isLight = theme === 'light';
 
+  const buttonStyles = {
+    border: 'none',
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+    height: '100%',
+    width: '100%',
+    color: 'var(--neutral-12)',
+    fontSize: 'var(--font-size-1)',
+  };
+
   return (
     <button
-      className={styles.button}
+      style={buttonStyles}
       onClick={() => updateTheme(isLight ? 'dark' : 'light')}
     >
       {isLight ? <Icon type="moon" /> : <Icon type="sun" />}
