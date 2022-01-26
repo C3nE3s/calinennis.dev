@@ -1,5 +1,5 @@
 ---
-import NavBar from './NavBar';
+import Toolbar from './Toolbar.astro';
 
 export interface Props {
   title?: string;
@@ -74,7 +74,7 @@ const { title, description, ogImageSource } = Astro.props;
     {ogImageSource && (<meta name="twitter:image" content={ogImageSource}>)}
   </head>
   <body>
-    <NavBar client:only="preact" />
+    <Toolbar />
     <main>
       <slot />
     </main>
@@ -84,7 +84,7 @@ const { title, description, ogImageSource } = Astro.props;
 <style global>
   body {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-1);
+    font-weight: var(--font-weight-3);
     background-color: var(--neutral-1);
     color: var(--neutral-12);
   }

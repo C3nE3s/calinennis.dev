@@ -1,0 +1,55 @@
+---
+export interface Props {
+  post: any;
+}
+
+import PostHeader from './PostHeader.astro';
+
+const { post } = Astro.props;
+---
+
+<article>
+  <a href={post.url}>
+    <PostHeader {post} />
+  </a>
+  <div class="article-body">{post.astro.html}</div>
+  <div class="mask">
+    <a href={post.url}>Continue Reading</a>
+  </div>
+</article>
+
+<style style="scss">
+  article {
+    overflow-y: hidden;
+    position: relative;
+    height: 450px;
+    border-radius: var(--radius-2);
+    border-left: 1px dashed var(--neutral-6);
+    padding-left: 1rem;
+  }
+
+  .article-body {
+    padding-top: 1rem;
+    max-height: 500px;
+  }
+  .mask {
+    position: absolute;
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    z-index: 9999999;
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      var(--neutral-1) 88%
+    );
+    color: var(--neutral-12);
+    font-size: var(--font-size-2);
+    letter-spacing: var(--font-letterspacing-1);
+  }
+</style>

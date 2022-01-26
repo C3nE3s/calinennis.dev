@@ -1,11 +1,12 @@
 ---
 import Layout from '../../components/Layout.astro';
+import PageTitle from '../../components/PageTitle.astro';
 import Icon from '../../components/Icon';
 ---
 
 <Layout>
   <section>
-    <h1>About</h1>
+    <PageTitle>About</PageTitle>
     <div class="description">
       <h2></h2>
       <p>
@@ -59,71 +60,12 @@ import Icon from '../../components/Icon';
   section {
     width: 75vw;
     margin: 0 auto;
-    padding-top: 4rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
+    flex-direction: column;
   }
 
-  h1 {
-    width: fit-content;
-    margin: 0 auto;
-    font-family: var(--font-display);
-    font-weight: var(--font-weight-1);
-    text-align: right;
-    font-size: var(--font-size-4);
-    letter-spacing: var(--font-letterspacing-2);
-    text-transform: uppercase;
-    position: relative;
-
-    &:before {
-      position: absolute;
-      bottom: 0.5rem;
-      right: 1rem;
-      content: '';
-      height: 0.125rem;
-      width: 66%;
-      margin: 0 0 0 auto;
-      background-color: var(--neutral-12);
-    }
-    &:after {
-      position: absolute;
-      bottom: -0.125rem;
-      right: 1rem;
-      content: '';
-      height: 0.125rem;
-      width: 75%;
-      margin: 0 0 0 auto;
-      background-color: var(--neutral-12);
-    }
-  }
-
-  h2 {
-    position: relative;
-    font-family: var(--font-sans);
-    letter-spacing: var(--font-letterspacing-2);
-    width: fit-content;
-
-    &:first-letter {
-      font-family: var(--font-display);
-      font-size: var(--font-size-4);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: var(--font-letterspacing-2);
-      margin-right: var(--size-00);
-      padding-right: 1px;
-    }
-    &:before {
-      position: absolute;
-      bottom: 0.125rem;
-      right: 0;
-      left: 0;
-      content: '';
-      height: 2px;
-      width: 66%;
-      margin: 0 auto;
-      background-color: var(--neutral-6);
-    }
+  .description {
+    padding-bottom: 4rem;
   }
 
   p {
@@ -183,9 +125,6 @@ import Icon from '../../components/Icon';
     section {
       width: 66vw;
     }
-    section > h1 {
-      font-size: var(--font-size-5);
-    }
 
     .links > ul > li {
       flex: 1 0 33%;
@@ -196,19 +135,6 @@ import Icon from '../../components/Icon';
     section {
       width: var(--size-content-2);
     }
-    section > h1 {
-      font-size: var(--font-size-6);
-    }
-    h1:before {
-      height: 0.25rem;
-      bottom: 1rem;
-      right: 1.5rem;
-    }
-    h1:after {
-      height: 0.25rem;
-      bottom: 0rem;
-      right: 1.5rem;
-    }
 
     .links > ul > li {
       flex: 1 0 18%;
@@ -218,19 +144,6 @@ import Icon from '../../components/Icon';
   @media screen and (min-width: 1024px) {
     section {
       width: var(--size-content-3);
-    }
-    section > h1 {
-      font-size: var(--font-size-7);
-    }
-    h1:before {
-      height: 0.33rem;
-      bottom: 1.5rem;
-      right: 2rem;
-    }
-    h1:after {
-      height: 0.33rem;
-      bottom: 0;
-      right: 2rem;
     }
   }
 </style>

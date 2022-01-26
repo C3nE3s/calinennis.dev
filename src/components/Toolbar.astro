@@ -1,0 +1,151 @@
+---
+import SideNav from './SideNav.astro';
+import Icon from './Icon';
+import ThemeSwitch from './ThemeSwitch';
+---
+
+<header>
+  <SideNav />
+  <div class="toolbar-container">
+    <div class="controls-left">
+      <a href="/" class="hide-on-small" aria-label="Navigate Home">
+        <Icon type="signature" />
+      </a>
+      <a
+        href="#menu"
+        class="hide-on-large"
+        id="menu-toggle"
+        aria-label="Open main menu"
+        role="button"
+      >
+        <span class="sr-only">Open main menu</span>
+        <Icon type="menu" />
+      </a>
+    </div>
+    <div class="controls-right">
+      <a
+        href="/about"
+        aria-label="Find out more about me"
+        class="hide-on-small"
+      >
+        About
+      </a>
+      <span class="hide-on-small">|</span>
+      <a href="/musings" aria-label="Explore my blog" class="hide-on-small">
+        Musings
+      </a>
+      <span class="hide-on-small">|</span>
+      <ThemeSwitch client:only="preact" />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    position: sticky;
+    color: var(--neutral-12);
+    border-bottom: 1px solid var(--neutral-6);
+    z-index: 2;
+  }
+  .toolbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--size-3) var(--size-7);
+    width: 100%;
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+  }
+
+  a[role='button'] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    aspect-ratio: 1/1;
+    border: none;
+  }
+  .toolbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--size-3) var(--size-7);
+    width: 100%;
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+  }
+
+  a[role='button'] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    aspect-ratio: 1/1;
+    border: none;
+  }
+  @media (min-width: 768px) {
+    .hide-on-large {
+      visibility: hidden;
+    }
+  }
+  @media (max-width: 768px) {
+    .hide-on-small {
+      display: none;
+    }
+  }
+
+  .controls-left {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-2);
+  }
+
+  .controls-right {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+  }
+
+  .controls-right > a {
+    position: relative;
+  }
+
+  .controls-right > a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 2px;
+    bottom: -0.25rem;
+    left: 0;
+    background-color: var(--brand-8);
+    transform: scaleX(0);
+    transition: transform 0.175s ease;
+  }
+
+  .controls-right > a:hover::before {
+    transform: scaleX(1);
+  }
+
+  .controls-right > span {
+    color: var(--neutral-6);
+    font-size: var(--font-size-2);
+    margin: 0 1rem;
+  }
+  .controls-right > span:hover {
+    cursor: default;
+  }
+
+  @media (min-width: 768px) {
+    .hide-on-large {
+      visibility: hidden;
+    }
+  }
+  @media (max-width: 768px) {
+    .hide-on-small {
+      display: none;
+    }
+  }
+</style>

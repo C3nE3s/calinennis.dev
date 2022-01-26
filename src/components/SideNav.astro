@@ -1,0 +1,82 @@
+---
+import Icon from './Icon';
+---
+
+<nav id="menu" aria-label="Main menu">
+  <ul>
+    <li>
+      <a href="#" id="menu-close" aria-label="Close main menu" role="button">
+        <span class="sr-only">Close main menu</span>
+        <Icon type="close" />
+      </a>
+    </li>
+    <li>
+      <a href="/" aria-label="Navigate to the homepage"> Home </a>
+    </li>
+    <li>
+      <a href="/about" aria-label="Find out more about me"> About </a>
+    </li>
+    <li>
+      <a href="/musings" aria-label="Explore my blog"> Musings </a>
+    </li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  nav {
+    visibility: hidden;
+    position: fixed;
+    left: -200px;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: var(--size-3) var(--size-7);
+    background-color: rgba($color: #ffffff, $alpha: 0.66);
+    backdrop-filter: saturate(180%) blur(5px);
+    z-index: 999998;
+  }
+
+  [data-theme='dark'] {
+    nav {
+      background-color: rgba($color: #000000, $alpha: 0.66);
+    }
+  }
+
+  nav > ul > li {
+    z-index: 999999;
+    line-height: var(--font-lineheight-4);
+    cursor: pointer;
+    letter-spacing: var(--font-letterspacing-2);
+    font-size: var(--font-size-2);
+    font-weight: 400;
+    padding: 0.25rem 0;
+
+    width: fit-content;
+
+    & svg {
+      font-size: var(--font-size-1);
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    #menu:target {
+      left: 0;
+      visibility: initial;
+    }
+  }
+
+  #menu:target {
+    @keyframes wipe-in-left {
+      from {
+        left: -200px;
+      }
+      to {
+        left: 0;
+      }
+    }
+
+    animation: 0.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-left both;
+    visibility: initial;
+  }
+</style>
