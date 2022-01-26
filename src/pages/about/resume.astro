@@ -1,7 +1,3 @@
----
-import QRcode from '../../../public/images/qr-code.svg';
----
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,7 +21,10 @@ import QRcode from '../../../public/images/qr-code.svg';
         </header>
       </section>
       <section class="qr-code">
-        <img role="presentation" src={QRcode} />
+        <img
+          role="presentation"
+          src={Astro.resolve('../../../public/images/qr-code.svg')}
+        />
         <h5>Scan to visit my website</h5>
       </section>
       <section class="experience">

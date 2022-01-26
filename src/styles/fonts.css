@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Carbon';
   src: local(Carbon-Light),
-    url('../../public/fonts/Carbon-Light.ttf') format('ttf');
+    url('../../public/fonts/Carbon-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: fallback;
