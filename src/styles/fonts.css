@@ -1,7 +1,8 @@
 @font-face {
-  font-family: 'Carbon-Light';
-  src: url('../../public/fonts/Carbon-Light.woff2') format('woff2');
-  font-weight: 300;
+  font-family: 'GoodTimes';
+  src: local(Elianto-Regular),
+    url('../../public/fonts/GoodTimes.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: fallback;
 }

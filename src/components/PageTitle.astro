@@ -9,7 +9,7 @@
     font-family: var(--font-display);
     font-weight: var(--font-weight-1);
     text-align: right;
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-3);
     letter-spacing: var(--font-letterspacing-2);
     text-transform: uppercase;
     position: relative;
@@ -17,7 +17,7 @@
     &:before {
       position: absolute;
       bottom: 0.5rem;
-      right: 1rem;
+      right: 4px;
       content: '';
       height: 0.125rem;
       width: 66%;
@@ -26,8 +26,8 @@
     }
     &:after {
       position: absolute;
-      bottom: -0.125rem;
-      right: 1rem;
+      bottom: 0;
+      right: 4px;
       content: '';
       height: 0.125rem;
       width: 75%;
@@ -37,39 +37,35 @@
   }
   @media screen and (min-width: 480px) {
     h1 {
-      font-size: var(--font-size-5);
+      font-size: var(--font-size-4);
     }
   }
 
   @media screen and (min-width: 768px) {
     h1 {
-      font-size: var(--font-size-6);
+      font-size: var(--font-size-5);
     }
     h1:before {
       height: 0.25rem;
       bottom: 1rem;
-      right: 1.5rem;
     }
     h1:after {
       height: 0.25rem;
       bottom: 0rem;
-      right: 1.5rem;
     }
   }
 
   @media screen and (min-width: 1024px) {
     h1 {
-      font-size: var(--font-size-7);
+      font-size: var(--font-size-6);
     }
     h1:before {
       height: 0.33rem;
-      bottom: 1.5rem;
-      right: 2rem;
+      bottom: 1.25rem;
     }
     h1:after {
       height: 0.33rem;
-      bottom: 0;
-      right: 2rem;
+      bottom: 0.25;
     }
   }
 </style>
