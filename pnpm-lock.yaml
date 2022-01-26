@@ -10,7 +10,6 @@ specifiers:
   date-fns: ^2.28.0
   husky: ^7.0.4
   postcss: ^8.4.5
-  postcss-each: ^1.1.0
   prettier: ^2.5.1
   prettier-plugin-astro: ^0.0.11
   sass: ^1.47.0
@@ -29,7 +28,6 @@ devDependencies:
   autoprefixer: 10.4.0_postcss@8.4.5
   husky: 7.0.4
   postcss: 8.4.5
-  postcss-each: 1.1.0_postcss@8.4.5
   prettier: 2.5.1
   prettier-plugin-astro: 0.0.11
   sass: 1.47.0
@@ -4432,30 +4430,6 @@ packages:
         integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==,
       }
     engines: { node: '>=8.6' }
-    dev: true
-
-  /postcss-each/1.1.0_postcss@8.4.5:
-    resolution:
-      {
-        integrity: sha512-YfTPHHAPFVRgEJfLg9RM4R9WYEHVU9Rf1R8QgZfnObwV2dgNqzTLzTl0w5tF71ApFcYLiJAXiTpHAoqJFYcZVw==,
-      }
-    peerDependencies:
-      postcss: ^8.0.0
-    dependencies:
-      postcss: 8.4.5
-      postcss-simple-vars: 6.0.3_postcss@8.4.5
-    dev: true
-
-  /postcss-simple-vars/6.0.3_postcss@8.4.5:
-    resolution:
-      {
-        integrity: sha512-fkNn4Zio8vN4vIig9IFdb8lVlxWnYR769RgvxCM6YWlFKie/nQaOcaMMMFz/s4gsfHW4/5bJW+i57zD67mQU7g==,
-      }
-    engines: { node: '>=10.0' }
-    peerDependencies:
-      postcss: ^8.2.1
-    dependencies:
-      postcss: 8.4.5
     dev: true
 
   /postcss-value-parser/4.2.0:

@@ -26,7 +26,6 @@ const ThemeSwitch: FunctionalComponent = () => {
     height: '100%',
     width: '100%',
     color: 'var(--neutral-12)',
-    fontSize: 'var(--font-size-1)',
     display: 'inline-flex',
     placeItems: 'center',
   };

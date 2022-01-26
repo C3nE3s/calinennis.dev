@@ -1,12 +1,4 @@
 @font-face {
-  font-family: 'GoodTimes';
-  src: local(GoodTimes),
-    url('../../public/fonts/GoodTimes.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-}
-@font-face {
   font-family: 'Manrope';
   src: local(Manrope-ExtraLight),
     url('../../public/fonts/Manrope-ExtraLight.woff2') format('woff2');
