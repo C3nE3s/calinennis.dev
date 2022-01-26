@@ -9,8 +9,8 @@
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   renderers: ['@astrojs/renderer-react', '@astrojs/renderer-preact'],
-  // buildOptions: {
-  //   site: 'https://calinennis.dev',
-  //   sitemap: true,
-  // },
+  buildOptions: {
+    site: 'https://calinennis.dev',
+    sitemap: true,
+  },
 });
