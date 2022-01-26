@@ -26,7 +26,6 @@ import Icon from '../../components/Icon/index.tsx';
       </section>
       <section class="qr-code">
         <Icon type="qr-code" />
-        <h5>Scan to visit my website</h5>
       </section>
       <section class="experience">
         <h2>Experience</h2>
@@ -36,14 +35,22 @@ import Icon from '../../components/Icon/index.tsx';
               <h3>Rangle.io</h3><span class="secondary-info">2018 - 2021</span>
             </div>
             <p>
-              Engaged with development teams of all sizes, informing on best
-              practices and solutions. Provided guidance and knowledge on
-              approaches to technical issues, system and product design, as well
-              as implementation approaches. Worked alongside architects, senior
-              management, designers, and many more to provide paths and
-              strategies that best fit the client's business and product needs.
-              I also helped lead internal teams to develop and deliver
-              greenfield applications for various client ventures.
+              As a developer and consultant with Rangle, I partnered directly
+              with clients and their product teams to deliver business critical
+              impact and accelerate their time to market. Whether through
+              process, strategy, education, or delivery, I was personally
+              responsible for client outcomes and was able to deliver tangible
+              results consistently and often. My clients needs varied wildly,
+              but I was able to drive success for everything from global
+              e-commerce web applications to specialized mobile-first medical
+              software. I utilized modern strategies such as design systems,
+              continuous integration and deployment, and domain driven
+              development to empower clients digital transformations. I provided
+              guidance on process, architecture, product design, and everything
+              in between, leaving behind systems that would accelerate my
+              clients long after I was gone. I occasionally helped lead internal
+              teams to develop and deliver greenfield applications for various
+              client ventures as well.
             </p>
           </li>
           <li>
@@ -54,14 +61,14 @@ import Icon from '../../components/Icon/index.tsx';
             </div>
             <p>
               As a front-end developer for Delta, I helped create web
-              applications that digitally transformed Delta's Engine Maintenance
+              applications that digitally transformed their Engine Maintenance
               program. Our applications enabled mechanics and engineers to
               maintain, track, and configure engines for commercial airlines. My
               co-workers and I worked within uncompromising business
               requirements and strict regulations to create rich, accessible,
               and intuitive user experiences and interfaces. Our platform
-              brought industry first processes and workflows to the airline
-              maintenance industry and resulted in the most accelerated engine
+              brought industry first workflows and processes to the airline
+              maintenance industry that resulted in the most accelerated engine
               maintenance cycle times in Delta's history.
             </p>
           </li>
@@ -134,14 +141,6 @@ import Icon from '../../components/Icon/index.tsx';
     font-style: normal;
     font-display: fallback;
   }
-  @font-face {
-    font-family: 'Merriweather';
-    src: local(Merriweather-Regular),
-      url('../../public/fonts/Merriweather-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: fallback;
-  }
   $sand1: hsl(50 20% 99%);
   $sand2: hsl(60 7.7% 97.5%);
   $sand3: hsl(59 6.5% 95.1%);
@@ -157,7 +156,7 @@ import Icon from '../../components/Icon/index.tsx';
 
   $font-sans: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
     Cantarell, Noto Sans, sans-serif;
-  $font-serif: 'Merriweather', ui-serif, serif;
+  $font-serif: ui-serif, serif;
 
   body {
     display: grid;
@@ -174,9 +173,10 @@ import Icon from '../../components/Icon/index.tsx';
     height: 11in;
     padding: 3rem 4rem;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 2fr 3fr 2fr 2fr;
     grid-column-gap: 4rem;
+    grid-row-gap: 1rem;
   }
 
   header {
@@ -261,9 +261,9 @@ import Icon from '../../components/Icon/index.tsx';
   }
 
   .qr-code {
-    grid-area: 4 / 4 / 4 / 6;
+    grid-area: 1 / 5 / 1 / 7;
     display: grid;
-    place-items: center;
+    place-items: start end;
   }
   svg {
     max-width: 50%;
@@ -276,7 +276,7 @@ import Icon from '../../components/Icon/index.tsx';
     align-items: center;
   }
   .experience {
-    grid-area: 2 / 1 / 4 / 4;
+    grid-area: 2 / 1 / 4 / 5;
   }
 
   .experience > * + * {
@@ -287,7 +287,7 @@ import Icon from '../../components/Icon/index.tsx';
     padding-top: 1rem;
   }
   .stack {
-    grid-area: 2 / 4 / 3 / 6;
+    grid-area: 2 / 5 / 3 / 7;
     display: flex;
     flex-direction: column;
     & > h2:not(:first-child) {
@@ -303,11 +303,11 @@ import Icon from '../../components/Icon/index.tsx';
     }
   }
   .education {
-    grid-area: 4 / 1 / 5 / 4;
+    grid-area: 3 / 5 / 5 / 7;
     & > ul {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 1rem;
     }
   }
 </style>
