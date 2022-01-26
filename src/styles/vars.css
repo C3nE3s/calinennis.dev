@@ -1,7 +1,7 @@
 :root {
   --font-sans: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
     Cantarell, Noto Sans, sans-serif;
-  --font-display: 'Carbon', 'Manrope', system-ui, -apple-system, Segoe UI,
+  --font-display: 'Carbon-Light', 'Manrope', system-ui, -apple-system, Segoe UI,
     Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   --font-serif: ui-serif, serif;
   --font-mono: Dank Mono, Operator Mono, Inconsolata, Fira Mono, ui-monospace,
