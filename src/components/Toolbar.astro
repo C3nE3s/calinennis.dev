@@ -35,7 +35,9 @@ import ThemeSwitch from './ThemeSwitch';
         Musings
       </a>
       <span class="hide-on-small">|</span>
-      <ThemeSwitch client:only="preact" />
+      <div class="theme-button-container">
+        <ThemeSwitch client:only="preact" />
+      </div>
     </div>
   </div>
 </header>
@@ -136,6 +138,17 @@ import ThemeSwitch from './ThemeSwitch';
   }
   .controls-right > span:hover {
     cursor: default;
+  }
+
+  .theme-button-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    aspect-ratio: 1/1;
+    height: 1.5rem;
+    border: none;
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
