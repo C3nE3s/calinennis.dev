@@ -35,5 +35,12 @@ fields:
     schema:
       format: markdown
   label: description
+- name: layout
+  type: text
+  config:
+    required: true
+  label: layout
+  hidden: true
+  default: "../../../layouts/PostLayout.astro"
 pages:
 - src/pages/musings/the-secrets-of-seniority.md
