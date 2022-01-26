@@ -53,6 +53,10 @@ const { title, description, ogImageSource } = Astro.props;
       type="text/css"
       href={Astro.resolve('../styles/global.css')}
     />
+    <script
+      defer
+      data-domain="calinennis.dev"
+      src="https://plausible.io/js/plausible.js"></script>
     <title>{title ? title + ' - calinennis.dev' : 'calinennis.dev'}</title>
     <meta name="title" content={title ? title : 'calinennis.dev'} />
     <meta name="description" content={description ?? fallbackDescription} />
