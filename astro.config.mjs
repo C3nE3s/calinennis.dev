@@ -8,6 +8,9 @@
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
-  // Set "renderers" to "[]" to disable all default, builtin component support.
   renderers: ['@astrojs/renderer-react', '@astrojs/renderer-preact'],
+  // buildOptions: {
+  //   site: 'https://calinennis.dev',
+  //   sitemap: true,
+  // },
 });

@@ -1,7 +1,7 @@
 import { h, FunctionalComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import Icon from '../Icon';
-import './styles.scss';
+import './styles.css';
 
 type ThemeLiteral = 'light' | 'dark';
 
