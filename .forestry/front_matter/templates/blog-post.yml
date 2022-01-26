@@ -40,7 +40,7 @@ fields:
   config:
     required: true
   label: layout
-  hidden: true
+  hidden: false
   default: "../../../layouts/PostLayout.astro"
 pages:
 - src/pages/musings/the-secrets-of-seniority.md
