@@ -47,4 +47,5 @@ fields:
   label: hidden
   default: true
 pages:
+- src/pages/musings/dev-dailies.md
 - src/pages/musings/the-secrets-of-seniority.md
