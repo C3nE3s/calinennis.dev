@@ -42,5 +42,9 @@ fields:
   label: layout
   hidden: false
   default: "../../../layouts/PostLayout.astro"
+- name: hidden
+  type: boolean
+  label: hidden
+  default: true
 pages:
 - src/pages/musings/the-secrets-of-seniority.md
