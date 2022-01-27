@@ -5,7 +5,7 @@ tags:
 - Habit
 - Dailies
 - Productivity
-layout: "../../../layouts/PostLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 hidden: true
 title: 'Dev Dailies '
 subtitle: ''
