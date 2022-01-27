@@ -61,9 +61,10 @@ const { description, title, subtitle, createdAt } = Astro.props.content;
     display: list-item;
   }
 
-  .markdown-body > a {
+  .markdown-body a {
     position: relative;
-    background-color: transparent;
+    color: var(--brand-11);
+    text-decoration: underline;
 
     & a:before {
       content: '';
@@ -74,12 +75,6 @@ const { description, title, subtitle, createdAt } = Astro.props.content;
       bottom: -0.25rem;
       left: 0;
       background-color: var(--brand-8);
-      transform: scaleX(0);
-      transition: transform 0.175s ease;
-    }
-
-    & a:hover::before {
-      transform: scaleX(1);
     }
   }
 

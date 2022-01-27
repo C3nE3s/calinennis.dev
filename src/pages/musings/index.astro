@@ -3,11 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import PageTitle from '../../components/PageTitle.astro';
 import PostPreview from '../../components/PostPreview.astro';
 
-const allPosts = Astro.fetchContent<{ createdAt: string }>('./*.md').sort(
-  (a, b) =>
-    (new Date(b.createdAt) as unknown as number) -
-    (new Date(a.createdAt) as unknown as number)
-);
+const allPosts = Astro.fetchContent<{ createdAt: string }>('./*.md')
+  .sort(
+    (a, b) =>
+      (new Date(b.createdAt) as unknown as number) -
+      (new Date(a.createdAt) as unknown as number)
+  )
+  .filter((post) => !(post as { hidden?: boolean }).hidden);
 ---
 
 <Layout>

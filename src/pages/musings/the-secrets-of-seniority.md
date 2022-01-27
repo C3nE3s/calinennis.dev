@@ -1,16 +1,18 @@
 ---
 createdAt: 2022-01-24T19:26:01.000+00:00
 tags:
-- Growth
-- 'Career '
+  - Growth
+  - 'Career '
 title: The Secrets of Seniority
-subtitle: the lesser talked about requirements needed to grow and become a more senior
+subtitle:
+  the lesser talked about requirements needed to grow and become a more senior
   engineer
-description: The lesser known qualities needed to become a more senior developer and
+description:
+  The lesser known qualities needed to become a more senior developer and
   engineer
-layout: "../../layouts/PostLayout.astro"
-
+layout: '../../layouts/PostLayout.astro'
 ---
+
 Climbing the seniority tree as a developer and engineer is a long hard road. When most people think about leveling up and growing their career, the focus is solely on technical skill sets and abilities. One thinks of technical competency, speed, experience, etc. While these are without a doubt valid and highly important areas of focus, I am here to highlight some lesser talked about topics that I wish someone had revealed to me earlier in my career.
 
 ### Leadership
@@ -21,9 +23,9 @@ Leading a team is a very nuanced and delicate thing. Being a leader does not alw
 
 Communication is a very deep and broad topic and I will almost assuredly not even scratch the surface with this post. The important aspects of communication that I wish to highlight break down into 3 categories:
 
-* Breadth
-* Context
-* Timing
+- Breadth
+- Context
+- Timing
 
 One of the greatest lessons I have learned in my career around communication is that the circle you communicate with **must** be larger than the circle you interact with on a day to day basis. While it may be important to make sure everyone on your team is linked up and on the same page, it is equally important that you are broadcasting outside your unit as well. Organizations, especially the larger ones, tend to create silos. In my experience, these organizational silos come up in almost every root cause analysis when big missteps occur. As a senior, you need to reach out to your product stakeholders. You need to reach out to other development teams outside your domain and even your project. You need to reach out to marketing, sales, HR, etc. etc. Be the person to bridge the gap, gather the resources, and bring shared knowledge and understanding. Do this and do it as early as you can.
 
