@@ -35,7 +35,7 @@ const { post } = Astro.props;
   }
   .mask {
     position: absolute;
-    height: 75%;
+    height: 50%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -46,11 +46,18 @@ const { post } = Astro.props;
     z-index: 9999999;
     background-image: linear-gradient(
       to bottom,
-      transparent,
-      var(--neutral-1) 88%
+      rgba(253, 253, 252, 0),
+      rgba(253, 253, 252, 1) 85%
     );
     color: var(--neutral-12);
     font-size: var(--font-size-2);
     letter-spacing: var(--font-letterspacing-1);
+  }
+  html[data-theme='dark'] .mask {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(22, 22, 21, 0),
+      rgba(22, 22, 21, 1) 85%
+    );
   }
 </style>

@@ -1,18 +1,19 @@
 ---
 createdAt: 2022-01-27T15:57:22.000+00:00
 tags:
-- Systems
-- Habit
-- Dailies
-- Productivity
-layout: "../../layouts/PostLayout.astro"
+  - Systems
+  - Habit
+  - Dailies
+  - Productivity
+layout: '../../layouts/PostLayout.astro'
 hidden: false
 title: 'Dev Dailies '
 subtitle: ''
-description: Activities, resources, and approaches that benefit developers of any
+description:
+  Activities, resources, and approaches that benefit developers of any
   level.
-
 ---
+
 In James Clear's book, Atomic Habits, one of the most powerful concepts he lays out is systems over goals. He proposes that focusing energy and attention on systems and processes that govern your work will generate more fruitful outcomes than focusing on the output or goal associated with your efforts. That is to say that robust, thought out systems and habits will produce more for you in the long run than focusing on short term goals. I agree with this completely, and with this in mind, I would like to share with you some thoughts and resources on what I think are some good atomic habits developers can apply to their daily workflows.
 
 ### Before You Start
