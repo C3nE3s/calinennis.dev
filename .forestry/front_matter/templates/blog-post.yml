@@ -41,7 +41,7 @@ fields:
     required: true
   label: layout
   hidden: false
-  default: "../../../layouts/PostLayout.astro"
+  default: "../../layouts/PostLayout.astro"
 - name: hidden
   type: boolean
   label: hidden
