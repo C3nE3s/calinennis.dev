@@ -56,14 +56,14 @@ When making my choice for the framework of this site, I needed a static site gen
 All of these offer SSG with interactivity but in the end, I chose [Astro](https://astro.build/) for its 0 JS default and authoring experience ([Eleventy](https://www.11ty.dev/) is a close second btw, check it out if you haven't). Astro is an amazing innovation in the web development community and I could go on in length about its benefits, but I will summarize why it won out:
 
 * Author in any framework
-  * This also allows access to said frameworks ecosystem (hello react OSS)
+* Access to any frameworks ecosystem (hello react OSS)
 * Robust opt-in client-side JS API
 * File-based routing
 * Markdown support out of the box
 * Vite
 * Vite
 * Vite
-* did I say Vite?
+* Oh, did I say Vite?
 
 While I do miss client-side routing and a few other things like the image optimization offered by Gatsby and Next, I think for my use case, having a multi-page application suits my requirements best. Dropping the need to have to send 70kb+ over the wire by default (React runtime) is too great a benefit for me to ignore.
 
@@ -75,10 +75,10 @@ Vercel. Zero config, instant deployment. Free. Robust API offerings.
 
 ### Future Plans
 
-As with any product or website, shipping early and often is the goal. Version 1 of my site is admittedly pretty simple and bare-bones, but it was complete enough to push to production within a week or two. Now I have plans to iterate and do some fun and interesting things. 
+As with any product or website, shipping early and often is the goal. Version 1 of my site is admittedly pretty simple and bare-bones, but it was complete enough to push to production within a week or two. Now I have plans to iterate and do some fun and interesting things.
 
-First, I need to create a system to optimize images for my site. In order to have a great immersive experience, I will need media on my site and it will need to be performant. I am currently looking at using [Vercel's Edge Image Optimization](https://vercel.com/docs/file-system-api#configuration/images) to cache and serve my images at the edge.  
+First, I need to create a system to optimize images for my site. In order to have a great immersive experience, I will need media on my site and it will need to be performant. I am currently looking at using [Vercel's Edge Image Optimization](https://vercel.com/docs/file-system-api#configuration/images) to cache and serve my images at the edge.
 
-Next, I want to work on optimizing my SEO, create an open-graph system to create great thumbnails for my posts, and offer an RSS feed as well. I am looking to increase discoverability and integration into the content I plan to author. 
+Next, I want to work on optimizing my SEO, create an open-graph system to create great thumbnails for my posts, and offer an RSS feed as well. I am looking to increase discoverability and integration into the content I plan to author.
 
-Last, but definitely not least, I want really grow my blog into a world class user experience. I would like to add interactive feedback systems, like voting and reviews. I would like to add aggregate user highlights to let the consumers choose what is important to pick out of my content. I also want to add interactive UI with popover links, robust and interactive code blocks, and any other delight I can bring to the experience. 
+Last, but definitely not least, I want really grow my blog into a world class user experience. I would like to add interactive feedback systems, like voting and reviews. I would like to add aggregate user highlights to let the consumers choose what is important to pick out of my content. I also want to add interactive UI with popover links, robust and interactive code blocks, and any other delight I can bring to the experience.
