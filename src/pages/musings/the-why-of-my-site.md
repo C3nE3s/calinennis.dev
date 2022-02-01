@@ -2,7 +2,7 @@
 createdAt: 2022-02-01T15:30:21Z
 tags: []
 layout: "../../layouts/PostLayout.astro"
-hidden: true
+hidden: false
 title: The Why of My Site
 subtitle: The ideas and choices that went into my personal site creation
 description: The choices I made when creating my personal site and why
