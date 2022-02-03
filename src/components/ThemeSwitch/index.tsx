@@ -1,6 +1,8 @@
-import { h, FunctionalComponent } from 'preact';
+import type { FunctionalComponent } from 'preact';
+import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import Icon from '../Icon';
+import './style.css';
 
 type ThemeLiteral = 'light' | 'dark';
 
@@ -12,29 +14,15 @@ const ThemeSwitch: FunctionalComponent = () => {
   }, []);
   const updateTheme = (colorScheme: ThemeLiteral) => {
     window.localStorage.theme = colorScheme;
-    const el = document.querySelector('html');
-    el!.setAttribute('data-theme', colorScheme);
+    const root = document.documentElement;
+    root.setAttribute('data-theme', colorScheme);
     setTheme(colorScheme);
   };
 
   const isLight = theme === 'light';
 
-  const buttonStyles = {
-    border: 'none',
-    backgroundColor: 'transparent',
-    cursor: 'pointer',
-    height: '100%',
-    width: '100%',
-    color: 'var(--neutral-12)',
-    display: 'inline-flex',
-    placeItems: 'center',
-  };
-
   return (
-    <button
-      style={buttonStyles}
-      onClick={() => updateTheme(isLight ? 'dark' : 'light')}
-    >
+    <button onClick={() => updateTheme(isLight ? 'dark' : 'light')}>
       {isLight ? <Icon type="moon" /> : <Icon type="sun" />}
     </button>
   );

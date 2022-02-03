@@ -1,13 +1,13 @@
 ---
 createdAt: 2022-02-01T15:30:21Z
 tags: []
-layout: "../../layouts/PostLayout.astro"
+layout: '../../layouts/PostLayout.astro'
 hidden: false
 title: The Why of My Site
 subtitle: The ideas and choices that went into my personal site creation
 description: The choices I made when creating my personal site and why
-
 ---
+
 After 8 years in web development, I finally decided to create a little website for myself. I never stopped and took the time to carve out a little corner of the web, but now that I have, I wish I had done so earlier. I had a lot of fun creating this site, so I figured it beneficial to share about the process.
 
 ### Motivation
@@ -32,9 +32,9 @@ Personally, from an authoring experience, CSS in JS is my favored approach. Stro
 
 My next approach was to use Tailwind. I have used Tailwind in my professional work and have had success with it. I do really like Tailwind, but when creating my site I found a few potholes that really just lead me to want to reach elsewhere. I'll save the details for a later post, but in a nutshell the following are the reasons I decided against its adoption for my site:
 
-* Theming system was overkill for what I wanted/needed
-* Some CSS features I needed were hard to achieve inline and required me to custom bake my CSS anyways
-* Component theme composition using template strings. Basically, if you use template strings to compose classes for an HTML element and that class is not already used somewhere else in the app, it will get purged for production builds.
+- Theming system was overkill for what I wanted/needed
+- Some CSS features I needed were hard to achieve inline and required me to custom bake my CSS anyways
+- Component theme composition using template strings. Basically, if you use template strings to compose classes for an HTML element and that class is not already used somewhere else in the app, it will get purged for production builds.
 
       const button = ({color, children}) => (
       	<button className=`bg-${color}-500`>{children}</button>
@@ -48,22 +48,22 @@ So what did I end up going with? I created my own [custom properties](https://de
 
 When making my choice for the framework of this site, I needed a static site generator with the ability add interactivity as I chose. This requirement put the following technologies in the running:
 
-* Gatsby
-* Next
-* Eleventy
-* Astro
+- Gatsby
+- Next
+- Eleventy
+- Astro
 
 All of these offer SSG with interactivity but in the end, I chose [Astro](https://astro.build/) for its 0 JS default and authoring experience ([Eleventy](https://www.11ty.dev/) is a close second btw, check it out if you haven't). Astro is an amazing innovation in the web development community and I could go on in length about its benefits, but I will summarize why it won out:
 
-* Author in any framework
-* Access to any frameworks ecosystem (hello react OSS)
-* Robust opt-in client-side JS API
-* File-based routing
-* Markdown support out of the box
-* Vite
-* Vite
-* Vite
-* Oh, did I say Vite?
+- Author in any framework
+- Access to any frameworks ecosystem (hello react OSS)
+- Robust opt-in client-side JS API
+- File-based routing
+- Markdown support out of the box
+- Vite
+- Vite
+- Vite
+- Oh, did I say Vite?
 
 While I do miss client-side routing and a few other things like the image optimization offered by Gatsby and Next, I think for my use case, having a multi-page application suits my requirements best. Dropping the need to have to send 70kb+ over the wire by default (React runtime) is too great a benefit for me to ignore.
 

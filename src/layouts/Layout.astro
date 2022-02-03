@@ -16,27 +16,25 @@ const { title, description, ogImageSource } = Astro.props;
 <html lang="en">
   <head>
     <script>
-      const el = document.querySelector('html');
+      const root = document.documentElement;
       if (
         window.localStorage.theme === 'dark' ||
         (!('theme' in window.localStorage) &&
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
-        el.setAttribute('data-theme', 'dark');
+        root.setAttribute('data-theme', 'dark');
         if (!('theme' in window.localStorage)) {
           window.localStorage.theme = 'dark';
         }
       } else {
-        el.setAttribute('data-theme', 'light');
+        root.setAttribute('data-theme', 'light');
         if (!('theme' in window.localStorage)) {
           window.localStorage.theme = 'light';
         }
       }
-
       window.addEventListener('storage', () => {
         const theme = localStorage.getItem('theme');
-        console.log(theme, 'I AM LISTENING');
-        el.setAttribute('data-theme', theme);
+        root.setAttribute('data-theme', theme);
       });
     </script>
     <meta charset="UTF-8" />

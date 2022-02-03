@@ -1,0 +1,13 @@
+button {
+  border: none;
+  backgroundcolor: transparent;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+  placeitems: center;
+}
+
+button > svg {
+  color: var(--neutral-12);
+}
