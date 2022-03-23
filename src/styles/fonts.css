@@ -1,15 +1,14 @@
 @font-face {
   font-family: 'Manrope';
   src: local(Manrope-ExtraLight),
-    url('../../public/fonts/Manrope-ExtraLight.woff2') format('woff2');
+    url('/fonts/Manrope-ExtraLight.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: fallback;
 }
 @font-face {
   font-family: 'Manrope';
-  src: local(Manrope-Light),
-    url('../../public/fonts/Manrope-Light.woff2') format('woff2');
+  src: local(Manrope-Light), url('/fonts/Manrope-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: fallback;
@@ -17,7 +16,7 @@
 @font-face {
   font-family: 'Manrope';
   src: local(Manrope-Regular),
-    url('../../public/fonts/Manrope-Regular.woff2') format('woff2');
+    url('/fonts/Manrope-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: fallback;

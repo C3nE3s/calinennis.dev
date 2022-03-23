@@ -46,11 +46,6 @@ const { title, description, ogImageSource } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href={Astro.resolve('../styles/global.css')}
-    />
     <script
       defer
       data-domain="calinennis.dev"
@@ -90,6 +85,7 @@ const { title, description, ogImageSource } = Astro.props;
 </html>
 
 <style global>
+  @import '../styles/global.css';
   body {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-3);
