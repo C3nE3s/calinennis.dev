@@ -96,6 +96,11 @@ const { title, description, ogImageSource } = Astro.props;
     overflow-x: hidden;
     overflow-y: scroll;
   }
+  @media screen and (min-width: 480px) {
+    main {
+      padding: 0;
+    }
+  }
 
   main::-webkit-scrollbar {
     background: transparent;

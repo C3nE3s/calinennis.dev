@@ -7,11 +7,6 @@ import Icon from '../../components/Icon/index.tsx';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href={Astro.resolve('../../styles/normalize.css')}
-    />
     <title>calinennis.dev</title>
     <meta name="title" content="resume - calinennis.dev" />
     <meta name="description" content="Proffesional resume of Calin Ennis" />
@@ -32,7 +27,8 @@ import Icon from '../../components/Icon/index.tsx';
         <ul>
           <li>
             <div class="title">
-              <h3>Rangle.io</h3><span class="secondary-info">2018 - 2021</span>
+              <h3>Rangle.io</h3>
+              <span class="secondary-info">2018 - 2021</span>
             </div>
             <p>
               As a developer and consultant with Rangle, I partnered directly
@@ -55,9 +51,8 @@ import Icon from '../../components/Icon/index.tsx';
           </li>
           <li>
             <div class="title">
-              <h3>Delta Global Staffing</h3><span class="secondary-info">
-                2014 - 2017</span
-              >
+              <h3>Delta Global Staffing</h3>
+              <span class="secondary-info"> 2014 - 2017</span>
             </div>
             <p>
               As a front-end developer for Delta, I helped create web
@@ -82,7 +77,8 @@ import Icon from '../../components/Icon/index.tsx';
           <li>Angular</li>
           <li>Vue</li>
           <li>Redux</li>
-          <li>Jest / Cypress / Storybook</li>
+          <li>Jest / Cypress</li>
+          <li>Storybook</li>
           <li>Node / Express</li>
         </ul>
         <h2>Skills</h2>
@@ -117,30 +113,8 @@ import Icon from '../../components/Icon/index.tsx';
 </html>
 
 <style lang="scss">
-  @font-face {
-    font-family: 'Manrope';
-    src: local(Manrope-ExtraLight),
-      url('../../public/fonts/Manrope-ExtraLight.woff2') format('woff2');
-    font-weight: 200;
-    font-style: normal;
-    font-display: fallback;
-  }
-  @font-face {
-    font-family: 'Manrope';
-    src: local(Manrope-Light),
-      url('../../public/fonts/Manrope-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: fallback;
-  }
-  @font-face {
-    font-family: 'Manrope';
-    src: local(Manrope-Regular),
-      url('../../public/fonts/Manrope-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: fallback;
-  }
+  @import '../../styles/global.css';
+
   $sand1: hsl(50 20% 99%);
   $sand2: hsl(60 7.7% 97.5%);
   $sand3: hsl(59 6.5% 95.1%);
@@ -222,7 +196,7 @@ import Icon from '../../components/Icon/index.tsx';
 
   h3 {
     font-family: $font-sans;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 2;
     width: fit-content;
@@ -255,7 +229,7 @@ import Icon from '../../components/Icon/index.tsx';
 
   p {
     font-family: $font-sans;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 300;
     line-height: 1.25;
   }
@@ -279,10 +253,6 @@ import Icon from '../../components/Icon/index.tsx';
     grid-area: 2 / 1 / 4 / 5;
   }
 
-  .experience > * + * {
-    padding-left: 0.5rem;
-  }
-
   .experience > ul > li:not(:first-child) {
     padding-top: 1rem;
   }
@@ -297,7 +267,7 @@ import Icon from '../../components/Icon/index.tsx';
       list-style: circle inside;
       font-family: $font-sans;
       font-weight: 300;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-color: $sand11;
       line-height: 1.5;
     }
