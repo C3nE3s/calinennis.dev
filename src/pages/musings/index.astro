@@ -21,27 +21,6 @@ const allPosts = Astro.fetchContent<{ createdAt: string }>('./*.md')
 
 <style lang="scss">
   .post-preview-container {
-    width: 75vw;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media screen and (min-width: 480px) {
-    .post-preview-container {
-      width: 66vw;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .post-preview-container {
-      width: var(--size-content-2);
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .post-preview-container {
-      width: var(--size-content-3);
-    }
   }
 </style>

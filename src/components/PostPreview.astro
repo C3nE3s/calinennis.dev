@@ -4,6 +4,7 @@ export interface Props {
 }
 
 import PostHeader from './PostHeader.astro';
+import { Markdown } from 'astro/components';
 
 const { post } = Astro.props;
 ---
@@ -12,7 +13,11 @@ const { post } = Astro.props;
   <a href={post.url}>
     <PostHeader {post} />
   </a>
-  <div class="article-body">{post.astro.html}</div>
+  <div class="article-body">
+    <Markdown>
+      {post.astro.source}
+    </Markdown>
+  </div>
   <div class="mask">
     <a href={post.url}>Continue Reading</a>
   </div>
@@ -20,7 +25,7 @@ const { post } = Astro.props;
 
 <style style="scss">
   article {
-    overflow-y: hidden;
+    overflow: hidden;
     position: relative;
     height: 450px;
     border-radius: var(--radius-2);
@@ -43,7 +48,7 @@ const { post } = Astro.props;
     text-align: center;
     bottom: 0;
     left: 0;
-    z-index: 9999999;
+    z-index: 1;
     background-image: linear-gradient(
       to bottom,
       rgba(253, 253, 252, 0),
