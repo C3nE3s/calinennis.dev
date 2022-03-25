@@ -78,7 +78,7 @@ const { title, description, ogImageSource } = Astro.props;
   </body>
 </html>
 
-<style global>
+<style lang="scss" global>
   @import '../styles/global.css';
   body {
     font-family: var(--font-sans);
@@ -91,15 +91,10 @@ const { title, description, ogImageSource } = Astro.props;
     height: calc(100vh - 5rem);
     max-width: var(--max-screen-width);
     margin: 0 auto;
-    padding: 0 var(--size-7);
+    padding: 0;
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
-  }
-  @media screen and (min-width: 480px) {
-    main {
-      padding: 0;
-    }
   }
 
   main::-webkit-scrollbar {
