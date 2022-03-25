@@ -96,15 +96,22 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  @media screen and (min-width: 768) {
+  @media screen and (min-width: 768px) {
+    figcaption {
+      text-align: right;
+    }
+    .last-name {
+      margin-right: -4px;
+    }
     .job-role {
       font-size: var(--font-size-2);
+      padding-right: 4px;
     }
   }
 
   @media screen and (min-width: 1024px) {
     figure {
-      justify-content: space-between;
+      justify-content: space-around;
       gap: 0;
     }
 
@@ -132,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
       font-size: var(--font-size-2);
       text-align: right;
       line-height: var(--font-lineheight-0);
-      margin: 0;
+      margin-top: -0.75rem;
     }
   }
 </style>
