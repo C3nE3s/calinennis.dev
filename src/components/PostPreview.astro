@@ -7,11 +7,12 @@ import PostHeader from './PostHeader.astro';
 import { Markdown } from 'astro/components';
 
 const { post } = Astro.props;
+
 ---
 
 <article>
   <a href={post.url}>
-    <PostHeader {post} />
+    <PostHeader title={post.frontmatter.title} date={post.frontmatter.createdAt} />
   </a>
   <div class="article-body">
     <Markdown>
