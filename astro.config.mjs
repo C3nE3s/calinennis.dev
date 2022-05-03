@@ -1,16 +1,10 @@
-// Full Astro Configuration API Documentation:
-// https://docs.astro.build/reference/configuration-reference
+import { defineConfig } from 'astro/config';
 
-// @type-check enabled!
-// VSCode and other TypeScript-enabled text editors will provide auto-completion,
-// helpful tooltips, and warnings if your exported object is invalid.
-// You can disable this by removing "@ts-check" and `@type` comments below.
+import react from '@astrojs/react';
+import preact from '@astrojs/preact';
+import sitemap from '@astrojs/sitemap';
 
-// @ts-check
-export default /** @type {import('astro').AstroUserConfig} */ ({
-  renderers: ['@astrojs/renderer-react', '@astrojs/renderer-preact'],
-  buildOptions: {
-    site: 'https://calinennis.dev',
-    sitemap: true,
-  },
+export default defineConfig({
+  integrations: [react(), preact(), sitemap()],
+  site: 'https://calinennis.dev',
 });
