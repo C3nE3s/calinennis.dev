@@ -1,21 +1,22 @@
 ---
 export interface Props {
-  post: any;
+  title: string;
+  date:  string;
 }
 
 import { parseISO, format } from 'date-fns';
 
-const { post } = Astro.props;
+let { title, date: rawDate }  = Astro.props;
 
-const date = parseISO(post.createdAt);
+const date = parseISO(rawDate);
 const formatted = format(date, 'LLLL d, yyyy');
 ---
 
 <div>
   <h2>
-    {post.title}
+    {title}
   </h2>
-  <time dateTime={date}>{formatted}</time>
+  <time datetime={date.toString()}>{formatted}</time>
   <hr />
 </div>
 

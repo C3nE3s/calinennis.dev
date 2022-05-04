@@ -3,19 +3,29 @@ import Layout from '../../layouts/Layout.astro';
 import PageTitle from '../../components/PageTitle.astro';
 import PostPreview from '../../components/PostPreview.astro';
 
-const allPosts = Astro.fetchContent<{ createdAt: string }>('./*.md')
-  .sort(
-    (a, b) =>
-      (new Date(b.createdAt) as unknown as number) -
-      (new Date(a.createdAt) as unknown as number)
-  )
-  .filter((post) => !(post as { hidden?: boolean }).hidden);
+const allPosts = await Astro.glob("./*.md");
+let posts = await Promise.all(
+  Object.entries(allPosts).map(async ([key, post]) => {
+  return post.default().then(async content => {
+    return {
+      ...post,
+      astro:  await content.metadata
+    }
+  })
+})
+)
+
+const sortedPosts = posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.createdAt).valueOf() -
+    new Date(a.frontmatter.createdAt).valueOf()
+);
 ---
 
 <Layout>
   <div class="post-preview-container">
     <PageTitle>Musings</PageTitle>
-    {allPosts.map((p) => <PostPreview post={p} />)}
+    {sortedPosts.map((p) => <PostPreview post={p} />)}
   </div>
 </Layout>
 

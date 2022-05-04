@@ -10,12 +10,13 @@ export interface Props {
 import Layout from './Layout.astro';
 import PostHeader from '../components/PostHeader.astro';
 import Icon from '../components/Icon';
-const { description, title, subtitle, createdAt } = Astro.props.content;
+
+const { description, title, createdAt } = Astro.props.content;
 ---
 
 <Layout {title} {description}>
   <article>
-    <PostHeader post={Astro.props.content} />
+    <PostHeader {title} date={createdAt} />
     <div class="markdown-body">
       <slot />
     </div>
@@ -27,7 +28,7 @@ const { description, title, subtitle, createdAt } = Astro.props.content;
   </article>
 </Layout>
 
-<style lang="scss" global>
+<style lang="scss" is:global>
   article {
     margin: 4rem auto;
     width: 90vw;
