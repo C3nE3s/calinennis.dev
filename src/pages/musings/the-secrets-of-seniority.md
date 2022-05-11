@@ -3,9 +3,10 @@ createdAt: 2022-01-24T19:26:01.000+00:00
 tags:
 - Growth
 - 'Career '
-title: Embrace Intrapreneurship
-subtitle: the lesser talked about requirements needed to grow your career
-description: The lesser practiced qualities needed to accelerate personal career growth
+title: Intrapreneurship
+subtitle: The lesser practiced qualities needed to accelerate personal career growth
+description: 'learning to operate like an entrepreneur within an organization to foster
+  career growth and success '
 layout: "../../layouts/PostLayout.astro"
 hidden: false
 
