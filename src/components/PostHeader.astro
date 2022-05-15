@@ -1,39 +1,26 @@
 ---
 export interface Props {
   title: string;
-  date:  string;
+  date: string;
 }
 
 import { parseISO, format } from 'date-fns';
 
-let { title, date: rawDate }  = Astro.props;
+let { title, date: rawDate } = Astro.props;
 
 const date = parseISO(rawDate);
 const formatted = format(date, 'LLLL d, yyyy');
 ---
 
-<div>
-  <h2>
+<div class='my-4'>
+  <h2
+    class='tracking-wide text-2xl underline md:no-underline md:text-3xl m-0 leading-8'
+  >
     {title}
   </h2>
-  <time datetime={date.toString()}>{formatted}</time>
-  <hr />
+  <time
+    class='font-mono tracking-tighter text-xs leading-6 text-zinc-500 pl-px'
+    datetime={date.toString()}
+    >{formatted}
+  </time>
 </div>
-
-<style style="scss">
-  h2 {
-    letter-spacing: var(--font-letterspacing-1);
-    width: fit-content;
-    line-height: var(--font-lineheight-1);
-  }
-
-  time {
-    color: var(--neutral-11);
-    font-size: var(--font-size-0);
-    line-height: 0;
-  }
-  hr {
-    border: none;
-    border-bottom: 1px solid var(--neutral-6);
-  }
-</style>
