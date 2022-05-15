@@ -1,145 +1,122 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon';
 ---
 
 <Layout>
-  <section>
-    <figure>
-      <figcaption>
-        <span
-          class="first-name md:text-5xl lg:text-6xl xl:text-7xl md:self-end md:mr-[-4px] lg:mr-[-8px]"
-          >Calin</span
-        >
-        <span
-          class="last-name md:text-4xl lg:text-5xl xl:text-6xl md:self-end md:mr-[-8px] lg:mr-[-16px]"
-          >Ennis</span
-        >
-        <hr class="seperator" />
-        <p class="job-role">Web Developer & Consultant</p>
-      </figcaption>
-      <img src="/images/avatar_dark.png" alt="picture of calin ennis" />
-    </figure>
+  <section class='mt-[48px] grid place-items-center relative'>
+    <div
+      class='border-2 border-zinc-400 rounded-sm max-w-[40ch] drop-shadow-xl fade-up'
+    >
+      <div class='relative bg-zinc-300'>
+        <figure class='h-12 flex items-center'>
+          <img
+            class='w-24 aspect-square absolute top-[-3.5rem] left-2 border-2 rounded-sm border-white'
+            src='/images/avatar_dark.png'
+            alt='picture of calin ennis'
+          />
+          <figcaption class='ml-24 pl-4 font-mono text-xl'>
+            Calin Ennis
+          </figcaption>
+        </figure>
+      </div>
+      <div class='bg-white p-4 text-zinc-600'>
+        <span class='inline-flex items-center'>
+          <Icon class='h-6 w-6 mr-2' pack='ph' name='briefcase-light' />
+          Occupation: Software Engineer
+        </span>
+        <span class='inline-flex items-center'>
+          <Icon class='h-6 w-6 mr-2' pack='ion' name='md-globe' />
+          Base of Operations: Atlanta, GA
+        </span>
+        <span class='inline-flex items-center'>
+          <Icon class='h-6 w-6 mr-2' pack='system-uicons' name='document-stack'
+          />
+          Personnel File:&nbsp;
+          <a
+            class='bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:underline hover:text-zinc-900 flex items-center px-2 rounded-lg hover:scale-105 active:bg-zinc-300'
+            href='/resume.pdf'
+            alt='calin ennis' resume'
+            target='_blank'
+            rel='noopener noreferrer'
+            >Resume
+            <Icon
+              class='h-4 w-4 mt-[2px] ml-[2px]'
+              pack='ei'
+              name='external-link'
+            />
+          </a>
+        </span>
+
+        <p class='my-4 border-l-4 border-zinc-400 pl-2 italic'>
+          Fullstack developer specializing in the front-end disciplines. Builds
+          modern web experiences using JAMstack and Javascript. Gains charge
+          from coffee and music.
+        </p>
+        <ul class='mt-6 flex flex-row justify-evenly'>
+          <li
+            class='h-8 w-8 grid place-items-center border-2 border-zinc-300 rounded-sm text-zinc-500 p-1 hover:bg-zinc-200 hover:text-zinc-900 hover:scale-110 active:bg-zinc-300'
+          >
+            <a href='https://twitter.com/calin_ennis' target='_blank'
+              ><Icon
+                class='h-full w-full'
+                pack='teenyicons'
+                name='twitter-outline'
+              />
+            </a>
+          </li>
+          <li
+            class='h-8 w-8 grid place-items-center border-2 border-zinc-300 rounded-sm text-zinc-500 p-1 hover:bg-zinc-200 hover:text-zinc-900 hover:scale-110 active:bg-zinc-300'
+          >
+            <a href='https://github.com/C3nE3s' target='_blank'
+              ><Icon
+                class='h-full w-full'
+                pack='teenyicons'
+                name='github-outline'
+              />
+            </a>
+          </li>
+          <li
+            class='h-8 w-8 grid place-items-center border-2 border-zinc-300 rounded-sm text-zinc-500 p-1 hover:bg-zinc-200 hover:text-zinc-900 hover:scale-110 active:bg-zinc-300'
+          >
+            <a href='https://www.linkedin.com/in/calinennis/' target='_blank'
+              ><Icon class='h-full w-full' pack='ri' name='linkedin-line' />
+            </a>
+          </li>
+          <li
+            class='h-8 w-8 grid place-items-center border-2 border-zinc-300 rounded-sm text-zinc-500 p-1 hover:bg-zinc-200 hover:text-zinc-900 hover:scale-110 active:bg-zinc-300'
+          >
+            <a href='mailto: calinennis+siteinquiry@gmail.com' target='_blank'
+              ><Icon
+                class='h-full w-full'
+                pack='teenyicons'
+                name='envelope-outline'
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 </Layout>
 
-<style lang="scss">
+<style>
   section {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  figure {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    align-items: center;
-    gap: var(--size-4);
-    width: 100%;
+    height: calc(100% - 48px);
   }
 
-  figcaption {
-    text-align: center;
+  .fade-up {
+    animation: 200ms ease-out 0s 1 fadeUp;
   }
 
-  figcaption > span {
-    display: block;
-    text-transform: uppercase;
-    font-family: var(--font-display);
-    font-weight: var(--font-weight-1);
-    line-height: var(--font-lineheight-00);
-  }
-
-  .first-name {
-    font-size: clamp(var(--font-size-3), 5vw + 3.25rem, var(--font-size-7));
-  }
-
-  .last-name {
-    font-size: clamp(var(--font-size-2), 5vw + 2rem, var(--font-size-6));
-    letter-spacing: var(--font-letterspacing-4);
-  }
-
-  .seperator {
-    display: none;
-    border-color: var(--neutral-6);
-  }
-
-  .job-role {
-    color: var(--neutral-11);
-    font-weight: var(--font-weight-3);
-    letter-spacing: var(--font-letterspacing-0);
-    line-height: var(--font-lineheight-4);
-    text-align: center;
-  }
-
-  img {
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-    transform: rotate(3deg);
-    width: 75vw;
-    max-width: calc(var(--max-screen-width) * (2 / 5));
-    box-shadow: var(--shadow-4);
-  }
-
-  @media screen and (min-width: 480px) {
-    .first-name {
-      font-size: clamp(var(--font-size-4), 4vw + 4rem, var(--font-size-7));
+  @keyframes fadeUp {
+    0% {
+      opacity: 40%;
+      transform: translateY(100%);
     }
-    .last-name {
-      font-size: clamp(var(--font-size-3), 4vw + 3rem, var(--font-size-6));
-      letter-spacing: var(--font-letterspacing-2);
-    }
-    .job-role {
-      font-size: 20px;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    figcaption {
-      text-align: right;
-    }
-    .last-name {
-      margin-right: -4px;
-    }
-    .job-role {
-      font-size: var(--font-size-2);
-      padding-right: 4px;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    figure {
-      justify-content: space-around;
-      gap: 0;
-    }
-
-    figcaption {
-      text-align: right;
-    }
-
-    .first-name {
-      font-size: var(--font-size-7);
-      margin-right: -8px;
-    }
-
-    .last-name {
-      font-size: var(--font-size-6);
-      margin-right: -8px;
-    }
-
-    .seperator {
-      display: inline-block;
-      width: 70%;
-      margin: 0.75rem 0 0.75rem auto;
-    }
-
-    .job-role {
-      font-size: var(--font-size-2);
-      text-align: right;
-      line-height: var(--font-lineheight-0);
-      margin-top: -0.75rem;
+    100% {
+      opacity: 100%;
+      transform: translateY(0);
     }
   }
 </style>

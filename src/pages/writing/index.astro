@@ -1,19 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageTitle from '../../components/PageTitle.astro';
 import PostPreview from '../../components/PostPreview.astro';
 
-const allPosts = await Astro.glob("./*.md");
+const allPosts = await Astro.glob('./*.md');
 let posts = await Promise.all(
   Object.entries(allPosts).map(async ([key, post]) => {
-  return post.default().then(async content => {
-    return {
-      ...post,
-      astro:  await content.metadata
-    }
+    return post.default().then(async (content) => {
+      return {
+        ...post,
+        astro: await content.metadata,
+      };
+    });
   })
-})
-)
+);
 
 const sortedPosts = posts.sort(
   (a, b) =>
@@ -23,14 +22,12 @@ const sortedPosts = posts.sort(
 ---
 
 <Layout>
-  <div class="post-preview-container">
-    <PageTitle>Musings</PageTitle>
+  <div class='mt-[48px]'>
+    <h1
+      class='text-center py-6 mb-12 text-4xl font-mono bg-white rounded-md text-zinc-700 bg-blend-color-dodge drop-shadow-lg'
+    >
+      Writing
+    </h1>
     {sortedPosts.map((p) => <PostPreview post={p} />)}
   </div>
 </Layout>
-
-<style lang="scss">
-  .post-preview-container {
-    margin: 0 auto;
-  }
-</style>

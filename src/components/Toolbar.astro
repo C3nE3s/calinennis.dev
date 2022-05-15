@@ -1,128 +1,47 @@
 ---
-import SideNav from './SideNav.astro';
-import Icon from './Icon';
-import ThemeSwitch from './ThemeSwitch';
+import Icon from 'astro-icon';
 ---
 
-<header>
-  <SideNav />
-  <div class="toolbar-container">
-    <div class="controls-left">
-      <a href="/" class="hide-on-small" aria-label="Navigate Home">
-        <Icon type="signature" />
-      </a>
-      <a
-        href="#menu"
-        class="hide-on-large"
-        id="menu-toggle"
-        aria-label="Open main menu"
-        role="button"
-      >
-        <span class="sr-only">Open main menu</span>
-        <Icon type="menu" />
+<header
+  class='fixed top-0 inset-x-0 w-screen px-8 border-b-2 border-zinc-200 text-zinc-600 bg-zinc-100/30 bg-blend-overlay backdrop-blur-sm z-20'
+>
+  <div
+    class='max-w-[38rem] py-4 md:px-8 mx-auto flex flex-row w-full justify-between items-center relative'
+  >
+    <div>
+      <a href='/'>
+        <svg
+          class='h-8 w-8 hover:scale-105 hover:text-zinc-700'
+          width='48'
+          height='48'
+          viewBox='0 0 512 512'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <circle
+            cx='256'
+            cy='256'
+            r='242'
+            stroke='currentColor'
+            stroke-width='28'></circle>
+          <path
+            d='M177.551 334.016C161.615 334.016 147.311 330.656 134.639 323.936C121.967 317.216 112.079 307.904 104.975 296C97.871 283.904 94.319 270.272 94.319 255.104C94.319 239.936 97.871 226.4 104.975 214.496C112.079 202.592 121.871 193.28 134.351 186.56C147.023 179.84 161.423 176.48 177.551 176.48C192.719 176.48 205.967 179.552 217.295 185.696C228.815 191.84 237.455 200.672 243.215 212.192L215.567 228.32C211.151 221.216 205.583 215.936 198.863 212.48C192.335 208.832 185.135 207.008 177.263 207.008C163.823 207.008 152.687 211.424 143.855 220.256C135.023 228.896 130.607 240.512 130.607 255.104C130.607 269.696 134.927 281.408 143.567 290.24C152.399 298.88 163.631 303.2 177.263 303.2C185.135 303.2 192.335 301.472 198.863 298.016C205.583 294.368 211.151 288.992 215.567 281.888L243.215 298.016C237.263 309.536 228.527 318.464 217.007 324.8C205.679 330.944 192.527 334.016 177.551 334.016ZM416.661 255.968C416.661 258.464 416.469 262.016 416.085 266.624H295.413C297.525 277.952 302.997 286.976 311.829 293.696C320.853 300.224 331.989 303.488 345.237 303.488C362.133 303.488 376.053 297.92 386.997 286.784L406.293 308.96C399.381 317.216 390.645 323.456 380.085 327.68C369.525 331.904 357.621 334.016 344.373 334.016C327.477 334.016 312.597 330.656 299.733 323.936C286.869 317.216 276.885 307.904 269.781 296C262.869 283.904 259.413 270.272 259.413 255.104C259.413 240.128 262.773 226.688 269.493 214.784C276.405 202.688 285.909 193.28 298.005 186.56C310.101 179.84 323.733 176.48 338.901 176.48C353.877 176.48 367.221 179.84 378.933 186.56C390.837 193.088 400.053 202.4 406.581 214.496C413.301 226.4 416.661 240.224 416.661 255.968ZM338.901 205.28C327.381 205.28 317.589 208.736 309.525 215.648C301.653 222.368 296.853 231.392 295.125 242.72H382.389C380.853 231.584 376.149 222.56 368.277 215.648C360.405 208.736 350.613 205.28 338.901 205.28Z'
+            fill='currentColor'></path>
+        </svg>
       </a>
     </div>
-    <div class="controls-right">
-      <a
-        href="/about"
-        aria-label="Find out more about me"
-        class="hide-on-small"
-      >
-        About
+
+    <div>
+      <a class='group' href='/writing'>
+        <span class='flex flex-row group-hover:scale-105'>
+          <Icon
+            class='h-6 aspect-square group-hover:fill-zinc-700'
+            pack='ri'
+            name='quill-pen-line'
+          />
+          Writing
+        </span>
       </a>
-      <span class="hide-on-small">|</span>
-      <a href="/musings" aria-label="Explore my blog" class="hide-on-small">
-        Musings
-      </a>
-      <span class="hide-on-small">|</span>
-      <ThemeSwitch client:idle />
     </div>
   </div>
 </header>
-
-<style lang="scss">
-  header {
-    position: sticky;
-    color: var(--neutral-12);
-    border-bottom: 1px solid var(--neutral-6);
-    z-index: 2;
-  }
-
-  .toolbar-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--size-3) var(--size-7);
-    width: 100%;
-    max-width: var(--max-screen-width);
-    margin: 0 auto;
-  }
-
-  a[role='button'] {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    aspect-ratio: 1/1;
-    border: none;
-  }
-  @media (min-width: 768px) {
-    .hide-on-large {
-      visibility: hidden;
-    }
-  }
-  @media (max-width: 768px) {
-    .hide-on-small {
-      display: none;
-    }
-  }
-
-  .controls-left {
-    display: flex;
-    align-items: center;
-    font-size: var(--font-size-2);
-  }
-
-  .controls-right {
-    display: flex;
-    align-items: center;
-    font-weight: 300;
-  }
-
-  .controls-right > a {
-    position: relative;
-    color: var(--neutral-12);
-  }
-
-  .controls-right > a:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    display: block;
-    height: 2px;
-    bottom: -0.25rem;
-    left: 0;
-    background-color: var(--brand-8);
-    transform: scaleX(0);
-    transition: transform 0.175s ease;
-  }
-
-  .controls-right > a:hover::before {
-    transform: scaleX(1);
-  }
-
-  .controls-right > span {
-    color: var(--neutral-6);
-    font-size: var(--font-size-2);
-    margin: 0 1rem;
-  }
-  .controls-right > span:hover {
-    cursor: default;
-  }
-
-  .theme-button-container {
-    height: 32px;
-    width: 32px;
-  }
-</style>

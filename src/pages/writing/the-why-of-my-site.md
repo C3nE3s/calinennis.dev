@@ -1,13 +1,13 @@
 ---
 createdAt: 2022-02-01T15:30:21.000+00:00
 tags: []
-layout: "../../layouts/PostLayout.astro"
+layout: '../../layouts/PostLayout.astro'
 hidden: false
 title: The Why of My Site
 subtitle: The ideas and choices that went into my personal site creation
 description: The choices I made when creating my personal site and why
-
 ---
+
 After 8 years in web development, I finally decided to create a little website for myself. I never stopped and took the time to carve out a little corner of the web, but now that I have, I wish I had done so earlier. I had a lot of fun creating this site, so I figured it beneficial to share about the process.
 
 ### Motivation
@@ -32,9 +32,9 @@ Personally, from an authoring experience, CSS-in-JS is my favored approach. Stro
 
 My next approach was to use Tailwind. I have used Tailwind in my professional work and have had success with it. I do really like Tailwind, but when creating my site I found a few potholes that really just lead me to want to reach elsewhere. I'll save the details for a later post, but in a nutshell the following are the reasons I decided against its adoption for my site:
 
-* Theming system was overkill for what I wanted/needed
-* Some CSS features I needed were hard to achieve inline and required me to custom bake my CSS anyways
-* Component theme composition using template strings. Basically, if you use template strings to compose classes for an HTML element and that class is not already used somewhere else in the app, it will get purged for production builds.
+- Theming system was overkill for what I wanted/needed
+- Some CSS features I needed were hard to achieve inline and required me to custom bake my CSS anyways
+- Component theme composition using template strings. Basically, if you use template strings to compose classes for an HTML element and that class is not already used somewhere else in the app, it will get purged for production builds.
 
       const button = ({color, children}) => (
       	<button className=`bg-${color}-500`>{children}</button>
@@ -42,25 +42,25 @@ My next approach was to use Tailwind. I have used Tailwind in my professional wo
 
   This can be worked around, but it is a foot-gun that I have seen and come across a lot and it is hard to spot and can lead to some serious head banging. Read [this](https://v2.tailwindcss.com/docs/just-in-time-mode#arbitrary-value-support) to learn more.
 
-So what did I end up going with? I created my own [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) based off of the [System-UI specification](https://github.com/system-ui/theme-specification) with some help from Adam Argyle's amazing [Open Props](https://open-props.style/) project. To help with the authoring experience, I used the suggested VS Code plugin [CSS Var Complete](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar). It worked great for the most part, but it didn't support `.astro` file types, which made it a bit useless unfortunately. Using custom properties allowed me to do simple things like key off of a html data attribute to override variable values, making authoring extremely simple. No need to write custom css for every single little element. Just have the element to point to `brand-1` and control the values at the root. On the topic of colors and theme, I used the  [Radiux](https://www.radix-ui.com/colors) color pallets. I chose their colors specifically because of their amazing [documentation](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) that took out all the guess work on what shades/hues should be used where (again, I am no designer).
+So what did I end up going with? I created my own [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) based off of the [System-UI specification](https://github.com/system-ui/theme-specification) with some help from Adam Argyle's amazing [Open Props](https://open-props.style/) project. To help with the authoring experience, I used the suggested VS Code plugin [CSS Var Complete](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar). It worked great for the most part, but it didn't support `.astro` file types, which made it a bit useless unfortunately. Using custom properties allowed me to do simple things like key off of a html data attribute to override variable values, making authoring extremely simple. No need to write custom css for every single little element. Just have the element to point to `brand-1` and control the values at the root. On the topic of colors and theme, I used the [Radiux](https://www.radix-ui.com/colors) color pallets. I chose their colors specifically because of their amazing [documentation](https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale) that took out all the guess work on what shades/hues should be used where (again, I am no designer).
 
 ### Framework
 
 When making my choice for the framework of this site, I needed a static site generator with the ability add interactivity as I chose. This requirement put the following technologies in the running:
 
-* Gatsby
-* Next
-* Eleventy
-* Astro
+- Gatsby
+- Next
+- Eleventy
+- Astro
 
 All of these offer SSG with interactivity but in the end, I chose [Astro](https://astro.build/) for its 0 JS default and authoring experience ([Eleventy](https://www.11ty.dev/) is a close second btw, check it out if you haven't). Astro is an amazing innovation in the web development community and I could go on in length about its benefits, but I will summarize why it won out:
 
-* Author in any framework
-* Access to any frameworks ecosystem (hello react OSS)
-* Robust opt-in client-side JS API
-* File-based routing
-* Markdown support out of the box
-* Vite
+- Author in any framework
+- Access to any frameworks ecosystem (hello react OSS)
+- Robust opt-in client-side JS API
+- File-based routing
+- Markdown support out of the box
+- Vite
 
 While I do miss client-side routing and a few other things like the image optimization offered by Gatsby and Next, I think for my use case, having a multi-page application suits my requirements best. Dropping the need to have to send 70kb+ over the wire by default (React runtime) is too great a benefit for me to ignore.
 
@@ -78,4 +78,4 @@ First, I need to create a system to optimize images for my site. In order to hav
 
 Next, I want to work on optimizing my SEO, create an open-graph system to create great thumbnails for my posts, and offer an RSS feed as well. I am looking to increase discoverability and integration into the content I plan to author.
 
-Last, but definitely not least, I want really grow my blog into a world class user experience. I want to add interactive UI with popover links, robust and interactive code blocks, and any other delight I can bring to the experience. My site is admittedly  pretty austere without much in the way of animations and fun engaging mechanisms. 
+Last, but definitely not least, I want really grow my blog into a world class user experience. I want to add interactive UI with popover links, robust and interactive code blocks, and any other delight I can bring to the experience. My site is admittedly pretty austere without much in the way of animations and fun engaging mechanisms.
