@@ -11,7 +11,7 @@ const { post } = Astro.props;
 ---
 
 <article
-  class='group h-fit w-full md:h-[450px] bg-white border-2 border-zinc-200 backdrop-blur-lg drop-shadow-lg hover:drop-shadow-2xl rounded-md px-6 prose-sm mb-16 relative overflow-hidden'
+  class='group h-fit w-full md:h-[450px] bg-white border-2 border-zinc-200 hover:drop-shadow-lg rounded-md px-6 prose-sm mb-16 relative overflow-hidden'
 >
   <a href={post.url}>
     <PostHeader date={post.frontmatter.createdAt} title={post.frontmatter.title}
