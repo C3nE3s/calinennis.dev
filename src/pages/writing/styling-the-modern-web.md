@@ -1,16 +1,16 @@
 ---
 createdAt: 2022-06-15T21:29:18Z
 tags:
-- CSS
-- Tailwind
-- CSS-in-JS
-layout: "../../layouts/PostLayout.astro"
-hidden: true
+  - CSS
+  - Tailwind
+  - CSS-in-JS
+layout: '../../layouts/PostLayout.astro'
+hidden: false
 title: Styling the Modern Web
 subtitle: Pros and Cons of popular approaches
 description: Review and opinions on modern CSS styling solutions and frameworks
-
 ---
+
 Just use ChakraUI or Tailwind.
 
 If you were to derive your decision from popularity and amount of use, you almost certainly would land on a take like this. But, as always, frontend development moves fast and nothing is ever as cut and clear as it seems.
@@ -25,83 +25,48 @@ Ergonomically speaking, this has always been my favored approach when creating s
 
 But for all its ergonomics, CSS-in-JS has been in the hot seat as of late, and for good reason. To help explain why, lets take a look at the code below.
 
-\`\`\`TSX
-
+```tsx
 export type TextProps = {
-
-variant: 'body' | 'caption' | 'hint' | 'label';
-
+  variant: 'body' | 'caption' | 'hint' | 'label';
 } & TypographyFunctionsProps;
 
 const defaultextStyles = {
-
-fontFamily: 'body',
-
-fontWeight: 'regular',
-
-lineHeight: 'copy',
-
-color: 'text.primary',
-
-mt: 0,
-
-mb: 0,
-
+  fontFamily: 'body',
+  fontWeight: 'regular',
+  lineHeight: 'copy',
+  color: 'text.primary',
+  mt: 0,
+  mb: 0,
 };
 
 const textVariants = variant({
-
-variants: {
-
-body: {
-
-...defaultextStyles,
-
-fontSize: 2,
-
-},
-
-caption: {
-
-...defaultextStyles,
-
-fontSize: 1,
-
-},
-
-hint: {
-
-...defaultextStyles,
-
-fontSize: 0,
-
-},
-
-label: {
-
-...defaultextStyles,
-
-fontFamily: 'heading',
-
-fontSize: 1,
-
-fontWeight: 'medium',
-
-},
-
-},
-
+  variants: {
+    body: {
+      ...defaultextStyles,
+      fontSize: 2,
+    },
+    caption: {
+      ...defaultextStyles,
+      fontSize: 1,
+    },
+    hint: {
+      ...defaultextStyles,
+      fontSize: 0,
+    },
+    label: {
+      ...defaultextStyles,
+      fontFamily: 'heading',
+      fontSize: 1,
+      fontWeight: 'medium',
+    },
+  },
 });
 
-export const Text = styled.p<TextProps>\`
-
-${textVariants}
-
-${typographyFunctions}
-
-\`;
-
-\`\`\`
+export const Text = styled.p<TextProps>`
+  ${textVariants}
+  ${typographyFunctions}
+`;
+```
 
 Here we have a simple `<Text />` component that has some default base styles. It then has a variant API that will apply different styles according to the props passed to it. Herein lies its power and its problem. This component cannot know what variation to apply until it knows what props are being passed to it. Thus, it can only be determined at the runtime of the application. This means more JS must be downloaded by the client to dynamically inject these styles upon resolution.
 
@@ -117,15 +82,11 @@ Atomic CSS has been around for most of my development career and has **always** 
 
 Atomic CSS generally looks ugly and any engineer that looks at the code below is going to ask what the hell is the point.
 
-\`\`\`
-
+```css
 .font-thin {
-
-font-weight: 100;
-
+  font-weight: 100;
 }
-
-\`\`\`
+```
 
 Well I will tell you. It helps solve a multitude of footguns that can occur as a project scales. The utility classes help decouple your HTML and CSS. Your bespoke `.some-unique_text {}` classes that only apply to a specific HTML implementation go away. It also solves the problem with the cascade. No more tussling over which styles get applied by specificity. No more `!important` desperation styles. And perhaps the most important thing in my experience, a hard ceiling on the size of your style sheets. Duplication and bloat are eliminated by default with Atomic CSS, and as someone who has done quite a bit of styling clean up in my career, what a freaking relief that is.
 
@@ -133,15 +94,11 @@ Sound like a wonderland? Well it is, mostly. As with any solution, there are neg
 
 I have also heard the argument that Tailwind should only be used for quick prototypes and smaller projects. The implication is that while Tailwind allows for great speed of development, it lacks in modularity and maintainability. And while I want to balk at that take, there is some merit to it. Remember that variant API in the CSS-in-JS example above. Well as it turns out, achieving something like that in Tailwind is a bit more than trivial. Lets take a look at the code below to illustrate.
 
-\`\`\`TSX
-
-const button = ({color, children}) => (
-
-<button className=\`bg-${color}-500\`>{children}</button>
-
-)
-
-\`\`\`
+```tsx
+const button = ({ color, children }) => (
+  <button className={`bg-${color}-500`}>{children}</button>
+);
+```
 
 Why is this an issue? Well in short, Tailwind necessarily purges your unused styles on build. Currently, that system does not parse JS or take into consideration things like template strings. So if `bg-blue-500` is not used anywhere else in your project, then this style will be purged and this component will not get this color applied. This can be a doozy to remember and even more of a headache to debug. So with constraints like these, abstracting out components into a Design System can prove tricky. Fret not though, this is not a hard blocker as there are solutions both within Tailwind and with external packages. See this [wonderful writeup](https://levelup.gitconnected.com/dynamic-component-styles-in-vue-options-api-using-tailwind-css-and-lookup-tables-99f9098646e4) as well as [this open source library](https://github.com/joe-bell/cva) respectively.
 
