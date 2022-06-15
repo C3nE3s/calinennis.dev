@@ -1,13 +1,13 @@
 ---
 createdAt: 2022-02-01T15:30:21.000+00:00
 tags: []
-layout: '../../layouts/PostLayout.astro'
-hidden: false
+layout: "../../layouts/PostLayout.astro"
+hidden: true
 title: The Why of My Site
 subtitle: The ideas and choices that went into my personal site creation
 description: The choices I made when creating my personal site and why
----
 
+---
 After 8 years in web development, I finally decided to create a little website for myself. I never stopped and took the time to carve out a little corner of the web, but now that I have, I wish I had done so earlier. I had a lot of fun creating this site, so I figured it beneficial to share about the process.
 
 ### Motivation
