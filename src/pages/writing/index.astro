@@ -14,11 +14,13 @@ let posts = await Promise.all(
   })
 );
 
-const sortedPosts = posts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.createdAt).valueOf() -
-    new Date(a.frontmatter.createdAt).valueOf()
-);
+const sortedPosts = posts
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.createdAt).valueOf() -
+      new Date(a.frontmatter.createdAt).valueOf()
+  )
+  .filter((post) => !(post.frontmatter as { hidden?: boolean }).hidden);
 ---
 
 <Layout>
