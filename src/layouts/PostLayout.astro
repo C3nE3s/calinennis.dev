@@ -19,7 +19,9 @@ const { description, title, createdAt } = Astro.props.content;
     class='mt-[48px] bg-white px-4 py-6 rounded-md border-2 border-zinc-300'
   >
     <PostHeader {title} date={createdAt} />
-    <div class='pt-4 prose-sm prose-ul:list-disc'>
+    <div
+      class='pt-4 prose-sm prose-ul:list-disc prose-a:text-teal-600 prose-a:underline hover:prose-a:bg-teal-50 prose-pre:bg-transparent prose-code:font-mono prose-code:text-sm'
+    >
       <slot></slot>
     </div>
     <div class='pt-3 w-fit'>

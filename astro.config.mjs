@@ -12,4 +12,10 @@ export default defineConfig({
       external: ['svgo'],
     },
   },
+  markdown: {
+    shikiConfig: {
+      theme: 'rose-pine-dawn',
+    },
+    rehypePlugins: ['rehype-external-links'],
+  },
 });
